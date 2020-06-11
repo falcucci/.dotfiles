@@ -183,6 +183,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc-lists', { 'do': 'yarn install'}
   Plug 'neoclide/coc-python', { 'do': 'yarn install'}
   Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
+  Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
   Plug 'neoclide/coc-prettier', { 'do': 'yarn install'}
 
   Plug 'junegunn/fzf.vim'
