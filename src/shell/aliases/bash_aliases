@@ -1,3 +1,16 @@
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias cd..='cd ..'
+alias cat='ccat'
+alias psd='python setup.py develop'
+alias hgw='hg addremove & hg commit -m'
+alias tw='trans -fr'
+alias release-me='curl -LsS https://raw.githubusercontent.com/falcucci/release-me/master/changelog-it.sh | bash -s $1 $2'
+alias npmt='npm run test'
+alias npmd='npm run dev'
+
 alias npmd='npm run dev'
 
 alias pmd=openpomodoro-cli
