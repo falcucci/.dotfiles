@@ -1,484 +1,517 @@
 " ----------------------------------------------------------------------
-" | General Settings                                                   |
+" | General Settings |
 " ----------------------------------------------------------------------
 
-set nocompatible               " Don't make Vim vi-compatibile.
 
-syntax on                      " Enable syntax highlighting.
+" Pathogen exec
+" execute pathogen#infect()
 
-if has("autocmd")
+
+set nocompatible " Don't make vim vi-compatibile
+
+
+syntax off " Enable syntax highlighting
+
+
+if has('autocmd')
+    :silent !stty -ixon
     filetype plugin indent on
-    "           │     │    └──── Enable file type detection.
-    "           │     └───────── Enable loading of indent file.
-    "           └─────────────── Enable loading of plugin files.
+    " HTTPs://github.com/rhysd/nyaovim-mini-browser
+    filetype plugin on
+
+
+    " │ │ └──── Enable file type detection
+    " │ └───────── Enable loading of indent file
+    " └─────────────── Enable loading of plugin files
 endif
 
-set autoindent                 " Copy indent to the new line.
 
-set backspace=indent           " ┐
-set backspace+=eol             " │ Allow `backspace`
-set backspace+=start           " ┘ in insert mode.
+set autoindent " Copy indent to the new line
 
-set backupdir=~/.vim/backups   " Set directory for backup files.
 
-set backupskip=/tmp/*          " ┐ Don't create backups
-set backupskip+=/private/tmp/* " ┘ for certain files.
+set backspace=indent " ┐
+set backspace+=eol " │ Allow `backspace`
+set backspace+=start " ┘ in insert mode
+nnoremap <BS> X
 
-set clipboard=unnamed          " ┐
-                               " │ Use the system clipboard
-if has("unnamedplus")          " │ as the default register.
+
+set backupdir=~/.vim/backups " Set directory for backup files
+
+
+set backupskip=/tmp/* " ┐ Don't create backups
+set backupskip+=/private/tmp/* " ┘ for certain files
+
+
+set clipboard=unnamed " ┐
+" │ Use the system clipboard
+if has('unnamedplus') " │ as the default register
     set clipboard+=unnamedplus " │
-endif                          " ┘
-
-set cpoptions+=$               " When making a change, don't
-                               " redisplay the line, and instead,
-                               " put a `$` sign at the end of
-                               " the changed text.
-
-set colorcolumn=73             " Highlight certain column(s).
-set cursorline                 " Highlight the current line.
-set directory=~/.vim/swaps     " Set directory for swap files.
-set encoding=utf-8 nobomb      " Use UTF-8 without BOM.
-set history=5000               " Increase command line history.
-set hlsearch                   " Enable search highlighting.
-set ignorecase                 " Ignore case in search patterns.
-
-set incsearch                  " Highlight search pattern
-                               " as it is being typed.
-
-set laststatus=2               " Always show the status line.
-
-set lazyredraw                 " Do not redraw the screen while
-                               " executing macros, registers
-                               " and other commands that have
-                               " not been typed.
-
-set listchars=tab:▸\           " ┐
-set listchars+=trail:·         " │ Use custom symbols to
-set listchars+=eol:↴           " │ represent invisible characters.
-set listchars+=nbsp:_          " ┘
-
-set magic                      " Enable extended regexp.
-set mousehide                  " Hide mouse pointer while typing.
-set noerrorbells               " Disable error bells.
-
-set nojoinspaces               " When using the join command,
-                               " only insert a single space
-                               " after a `.`, `?`, or `!`.
-
-set nostartofline              " Kept the cursor on the same column.
-set number                     " Show line number.
-
-set numberwidth=5              " Increase the minimal number of
-                               " columns used for the `line number`.
-
-set report=0                   " Report the number of lines changed.
-set ruler                      " Show cursor position.
-
-set scrolloff=5                " When scrolling, keep the cursor
-                               " 5 lines below the top and 5 lines
-                               " above the bottom of the screen.
-
-set shortmess=aAItW            " Avoid all the hit-enter prompts.
-set showcmd                    " Show the command being typed.
-set showmode                   " Show current mode.
-set spelllang=en_us            " Set the spellchecking language.
-
-set smartcase                  " Override `ignorecase` option
-                               " if the search pattern contains
-                               " uppercase characters.
-
-set synmaxcol=2500             " Limit syntax highlighting (this
-                               " avoids the very slow redrawing
-                               " when files contain long lines).
-
-set tabstop=4                  " ┐
-set softtabstop=4              " │ Set global <TAB> settings.
-set shiftwidth=4               " │
-set expandtab                  " ┘
-
-set ttyfast                    " Enable fast terminal connection.
-set undodir=~/.vim/undos       " Set directory for undo files.
-set undofile                   " Automatically save undo history.
-set virtualedit=all            " Allow cursor to be anywhere.
-
-set visualbell                 " ┐
-set noerrorbells               " │ Disable beeping and window flashing
-set t_vb=                      " ┘ https://vim.wikia.com/wiki/Disable_beeping
-
-set wildmenu                   " Enable enhanced command-line
-                               " completion (by hitting <TAB> in
-                               " command mode, Vim will show the
-                               " possible matches just above the
-                               " command line with the first
-                               " match highlighted).
-
-set winminheight=0             " Allow windows to be squashed.
+endif " ┘
 
 
+
+set cpoptions+=$ " When making a change, don't
+" redisplay the line, and instead,
+" put a `$` sign at the end of
+" the changed text
+
+
+set colorcolumn=73 " Highlight certain column(s)
+set cursorline " Highlight the current line
+set directory=~/.vim/swaps " Set directory for swap files
+set encoding=utf-8 nobomb " Use UTF-8 without BOM
+set history=5000 " Increase command line history
+set hlsearch " Enable search highlighting
+set ignorecase " Ignore case in search patterns
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+set incsearch " Highlight search pattern as
+" it is being typed
+
+
+set laststatus=2 " Always show the status line
+
+
+set listchars=tab:▸\ " ┐
+set listchars+=trail:· " │ Use custom symbols to
+set listchars+=eol:↴ " │ represent invisible characters
+set listchars+=nbsp:_ " ┘
+
+
+set magic " Enable extended regexp
+set mousehide " Hide mouse pointer while typing
+set noerrorbells " Disable error bells
+
+
+set nojoinspaces " When using the join command,
+" only insert a single space
+" after a `.`, `?`, or `!`
+
+
+set nostartofline " Kept the cursor on the same column
+set number " Show line number
+
+
+set numberwidth=5 " Increase the minimal number of
+" columns used for the `line number`
+
+
+set report=0 " Report the number of lines changed
+set ruler " Show cursor position
+
+
+set scrolloff=5 " When scrolling, keep the cursor
+" 5 lines below the top and 5 lines
+" above the bottom of the screen
+
+
+set shortmess=aAItW " Avoid all the hit-enter prompts
+set showcmd " Show the command being typed
+set showmode " Show current mode
+set spelllang=en_us " Set the spellchecking language
+
+
+set smartcase " Override `ignorecase` option
+" if the search pattern contains
+" uppercase characters
+
+
+set synmaxcol=2500 " Limit syntax highlighting (this
+" avoids the very slow redrawing
+" when files contain long lines)
+
+
+set tabstop=2 " ┐
+set softtabstop=2 " │ Set global <TAB> settings
+set shiftwidth=2 " │ http://vimcasts.org/e/2
+set expandtab " ┘
+
+
+set ttyfast " Enable fast terminal connection
+set undodir=~/.vim/undos " Set directory for undo files
+set undofile " Automatically save undo history
+set virtualedit=all " Allow cursor to be anywhere
+
+
+set visualbell " ┐
+set noerrorbells " │ Disable beeping and window flashing
+set t_vb= " ┘ https://vim.wikia.com/wiki/Disable_beeping
+
+
+set wildmenu " Enable enhanced command-line
+" completion (by hitting <TAB> in
+" command mode, Vim will show the
+" possible matches just above the
+" command line with the first
+" match highlighted)
+
+
+set winminheight=0 " Allow windows to be squashed
+set tags=./tags;/
+
+
+set autoread
 " ----------------------------------------------------------------------
-" | Plugins                                                            |
+" | Plugins |
 " ----------------------------------------------------------------------
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+  " Use release branch
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Or latest tag
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  " Or build from source code by use yarn: https://yarnpkg.com
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Use Vundle to manage the Vim plugins.
-" https://github.com/VundleVim/Vundle.vim
+  Plug 'prettier/vim-prettier', {
+              \ 'do': 'yarn install',
+              \ 'branch': 'release/1.x',
+              \ 'for': [
+              \ 'javascript',
+              \ 'typescript',
+              \ 'css',
+              \ 'less',
+              \ 'scss',
+              \ 'json',
+              \ 'graphql',
+              \ 'markdown',
+              \ 'vue',
+              \ 'lua',
+              \ 'php',
+              \ 'python',
+              \ 'ruby',
+              \ 'html',
+              \ 'swift' ] }
+  Plug 'junegunn/fzf.vim'
+  " Plug 'maralla/completor.vim'
+  " Plug 'ahmedelgabri/vim-ava-snippets'
+  " Plug 'mhinz/vim-startify'
+  " Plug 'junegunn/limelight.vim'
+  Plug 'FooSoft/vim-argwrap'
+  Plug 'farmergreg/vim-lastplace'
+  " Plug 'gioele/vim-autoswap'
+  " Plug 'Glench/Vim-Jinja2-Syntax'
+  Plug 'ap/vim-css-color'
+  " Plug 'lepture/vim-jinja'
+  " Plug 'junegunn/goyo.vim'
+  " ES2015 code snippets (Optional)
+  Plug 'epilande/vim-es2015-snippets'
 
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  " React code snippets
+  " Plug 'epilande/vim-react-snippets'
+  " Plug 'mxw/vim-jsx'
+  Plug 'alvan/vim-closetag'
+  Plug 'moll/vim-node'
+  " React Native code snippets
+  " Plug 'tellijo/vim-react-native-snippets'
+  Plug 'nathanaelkane/vim-indent-guides'
+  " Plug 'mattn/emmet-vim'
+  " Plug 'ap/vim-css-color'
+  " Plug 'chrisbra/unicode.vim'
+  " Plug 'jelera/vim-javascript-syntax'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'hynek/vim-python-pep8-indent'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'ewilazarus/preto'
+  Plug 'morhetz/gruvbox'
+  Plug 'Yggdroot/indentLine'
+  Plug 'scrooloose/syntastic'
+  Plug 'honza/vim-snippets'
+  Plug 'xolox/vim-session'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'itchyny/vim-cursorword'
+  Plug 'fisadev/vim-isort'
+  Plug 'Valloric/MatchTagAlways'
+  " Plug 'tyru/current-func-info.vim'
+  Plug 'bogado/file-line'
+  Plug 'Chiel92/vim-autoformat'
+  Plug 'tpope/vim-abolish'
+  Plug 'heavenshell/vim-pydocstring'
+  " Plug 'bonsaiben/bootstrap-snippets'
+  Plug 'lfilho/cosco.vim'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'fatih/vim-go'
+  Plug 'pangloss/vim-javascript'
+  Plug 'xolox/vim-misc'
+  Plug 'Yggdroot/indentLine'
+  Plug 'matze/vim-move'
+  " Plug 'morhetz/gruvbox'
+  " Plug 'tomasr/molokai'
+  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 'mileszs/ack.vim'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'shougo/neosnippet'
+  Plug 'shougo/neosnippet-snippets'
+  " Plug 'shutnik/jshint2.vim'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'hynek/vim-python-pep8-indent'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'godlygeek/tabular'
+  " Plugin 'kien/ctrlp.vim'
+  " Plug 'mattn/webapi-vim'
+  Plug 'othree/html5.vim'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'raimondi/delimitmate'
+  Plug 'scrooloose/nerdtree'
+  Plug 'rking/ag.vim'
+  Plug 'wakatime/vim-wakatime'
+  Plug 'junegunn/vim-easy-align'
+  " Plug 'scrooloose/vim-slumlord'
+  " Plug 'aklt/plantuml-syntax'
+  " Plug 'rizzatti/dash.vim'
+  Plug 'rhysd/devdocs.vim'
+  " Plug 'dracula/vim'
 
-" Disable file type detection
-" (this is required by Vundle).
+call plug#end()
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
 
-filetype off
 
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" Include Vundle in the runtime path.
 
-set runtimepath+=~/.vim/plugins/Vundle.vim
+if executable('ag')
+    let $FZF_DEFAULT_COMMAND='ag --ignore=*.pyc -g ""'
+endif
 
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" Initialize Vundle and specify the path
-" where the plugins should be installed.
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+            \ { 'fg': ['fg', 'Normal'],
+            \ 'bg': ['bg', 'Normal'],
+            \ 'hl': ['fg', 'Comment'],
+            \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+': ['fg', 'Statement'],
+            \ 'info': ['fg', 'PreProc'],
+            \ 'prompt': ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker': ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header': ['fg', 'Comment'] }
 
-call vundle#begin("~/.vim/plugins")
-
-    Plugin 'VundleVim/Vundle.vim'
-
-    Plugin 'altercation/vim-colors-solarized'
-    Plugin 'ap/vim-css-color'
-    Plugin 'chrisbra/unicode.vim'
-    Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'godlygeek/tabular'
-    Plugin 'isRuslan/vim-es6'
-    Plugin 'jelera/vim-javascript-syntax'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'marijnh/tern_for_vim'
-    Plugin 'mattn/emmet-vim'
-    Plugin 'mattn/webapi-vim'
-    Plugin 'mhinz/vim-signify'
-    Plugin 'moll/vim-node'
-    Plugin 'mtscout6/syntastic-local-eslint.vim'
-    Plugin 'nathanaelkane/vim-indent-guides'
-    Plugin 'raimondi/delimitmate'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'sheerun/vim-polyglot'
-    Plugin 'shougo/neocomplcache.vim'
-    Plugin 'shougo/neosnippet'
-    Plugin 'shougo/neosnippet-snippets'
-    Plugin 'suan/vim-instant-markdown'
-    Plugin 'tomtom/tcomment_vim'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'wellle/targets.vim'
-
-call vundle#end()
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Re-enable file type detection
-" (disabling it was required by Vundle).
+" Use Vundle to manage the vim plugins
+" https://github.com/gmarik/Vundle.vim
 
 filetype on
 
+let g:mta_filetypes = {
+            \ 'html' : 1,
+            \ 'xhtml' : 1,
+            \ 'xml' : 1,
+            \ 'jinja' : 1,
+            \ 'javascript' : 1,
+            \}
+
+let g:jsx_ext_required = 0
+" filenames like *.xml, *.html, *.xhtml, ...
+" Then after you press <kbd>></kbd> in these files, this plugin will try to close the current tag.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
+
+:let g:session_autosave = 'yes'
+
+" Don't save hidden and unloaded buffers in sessions.
+" set sessionoptions-=buffers
+
+let javascript_enable_domhtmlcss = 1
+
+" show hide files for CtrlP
+let g:ctrlp_show_hidden = 1
+
+let g:ctrlp_dotfiles = 1
+"An example mapping, using the key combo <Leader>; for both normal and insert
+"modes:
+autocmd FileType javascript,css,jinja,jinja2,html nnoremap <silent> <Leader>' :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css,jinja,jinja2,html inoremap <silent> <Leader>' <c-o>:call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript UltiSnipsAddFiletypes html
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+
+noremap <F5> :SyntasticCheck <CR>
+noremap <F4> :SyntasticReset <CR>
+" [,space] Auto format python pep8
+noremap <F6> :Autoformat<CR>
+let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+let g:formatters_python = ['autopep8']
+
+map <F8> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" To override any filetype which was already detected, use this instead (note the 'set filetype=' syntax):
+" au BufRead,BufNewFile *.jinja2 set filetype=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " ----------------------------------------------------------------------
-" | Plugins - Emmet                                                    |
+" | Plugins - NerdTree |
+" ----------------------------------------------------------------------
+" NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * set background=dark
+" not show .pyc files on nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
+" maps Ctrl+o to toggle nerdtree in the dir of the current buffer:
+map <C-o> :NERDTreeToggle %<CR>
+
+" maps Ctrl+P to toggle ZFZ:
+map <C-p> :FZF<CR>
+
+" set keyboard shurtcut to close a specific tab
+nnoremap <C-q> :tabclose<CR>
+
+" python snippets
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>" " i have to remove it if will use youcompleteme
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" stop search on with following command
+set hlsearch!
+
+let g:indentLine_color_term = 239
+
+let NERDTreeMapOpenInTab='<ENTER>'
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
+noremap <space> :
+
+nnoremap <F3> :set hlsearch!<CR>
+
+nnoremap <F10> :tabp<CR>
+nnoremap <F12> :tabn<CR>
+
+nnoremap <F7> :GundoToggle<CR>
+
+" nnoremap <buffer> <F9> :exec '!clear;python' shellescape(@%, 1)<cr>
+
+function! RunScript()
+    :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then /Users/falcucci/.nvm/versions/node/v8.9.0/bin/node %; else python %; fi;
+endfunction
+map <F9> :call RunScript()<CR>
+
+" nnoremap <buffer> <F9> :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then /home/falcucci/.nvm/versions/node/v8.6.0/bin/node %; fi;
+" map <F9> :w<CR>:!python %<CR>
+
+" use ff to exit from insert mode
+:imap jj <Esc>
+
+nmap <silent> gd <Plug>(coc-definition)
+" nmap  imwap gd :Tags<CR>expand("<cword>")<CR>
+" fu! FzfTagsCurrWord()
+"   call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>'))})
+" endfu
+" map gd :call FzfTagsCurrWord()
+nnoremap <silent> ta :Tags <C-R><C-W><CR>
+
+" 'quote' a word
+nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
+" double "quote" a word
+nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
+" remove quotes from a word
+nnoremap wq :silent! normal mpeld bhd `ph<CR>
+
+" Now you can just press F6 any time
+" inside Vi/Vim and you'll get a timestamp
+" like 2016-01-25 Mo 12:44 inserted at the cursor.
+" nmap <F6> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+" imap <F6> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" set key to move blocks selecteds
+let g:move_key_modifier = 'C'
+
+" ----------------------------------------------------------------------
+" | Plugins - Emmet |
 " ----------------------------------------------------------------------
 
-" Redefine trigger key for Emmet.
+" Redefine trigger key for Emmet
 " http://docs.emmet.io/cheat-sheet/
+let g:user_emmet_leader_key='<C-E>'
 
-let g:user_emmet_leader_key="<C-E>"
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Load custom Emmet snippets.
+" Load custom Emmet snippetsv
 " http://docs.emmet.io/customization/snippets/
 
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand("~/.vim/snippets/emmet.json")), "\n"))
+" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/plugins/emmet-vim/plugin/emmet.json')), "\n"))
 
 
 " ----------------------------------------------------------------------
-" | Plugins - Indent Guides                                            |
+" added mouse support on vim xD
+set mouse=a
+
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+
+" save any file with Ctrl + S
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+
+" copy to dashboard
+:vmap <C-C> "+y"
+
+" Press F2 (toggles the 'paste' option on).
+set pastetoggle=<F2>
+
+
+" using alias to ack: AG
+set runtimepath^=~/.vim/plugins/ag.vim"
+let g:ackprg = "ag --vimgrep"
+let g:ag_working_path_mode="r"
+let g:ag_prg='ag -S --nocolor --nogroup --column --ignore node_modules'
+
+" let &colorcolumn=join(range(81,999),",")
+" let &colorcolumn="100,".join(range(400,999),",")
+if exists('+colorcolumn')
+set colorcolumn=200
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+endif
+
+" ----------------------------------------------------------------------
+" | Plugins - Indent Guides |
 " ----------------------------------------------------------------------
 
-" Set custom indent colors.
+" Set custom indent colors
 " https://github.com/nathanaelkane/vim-indent-guides#setting-custom-indent-colors
 
 let g:indent_guides_auto_colors = 0
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd
-        \ guibg=#00323D
-        \ ctermbg=Magenta
+            \ guibg=#00323D
+            \ ctermbg=Magenta
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
-        \ guibg=#073642
-        \ ctermbg=DarkMagenta
+            \ guibg=#073642
+            \ ctermbg=DarkMagenta
 
-
-" ----------------------------------------------------------------------
-" | Plugins - Instant Markdown                                         |
-" ----------------------------------------------------------------------
-
-" Do not automatically launch the preview
-" window when the markdown file is open.
-" https://github.com/suan/vim-instant-markdown#ginstant_markdown_autostart
-
-let g:instant_markdown_autostart = 0
-
-
-" ----------------------------------------------------------------------
-" | Plugins - Markdown                                                 |
-" ----------------------------------------------------------------------
-
-" Disable Folding.
-" https://github.com/plasticboy/vim-markdown#disable-folding
-
-let g:vim_markdown_folding_disabled=1
-
-
-" ----------------------------------------------------------------------
-" | Plugins - NeoComplCache                                            |
-" ----------------------------------------------------------------------
-
-" Enable `neocomplcache` by default.
-" https://github.com/Shougo/neocomplcache.vim#installation
-
-let g:neocomplcache_enable_at_startup=1
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Make `Tab` autocomplete.
-
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Make `Shift+Tab` insert `Tab` character.
-
-inoremap <S-TAB> <C-V><TAB>
-
-
-" ----------------------------------------------------------------------
-" | Plugins - Signify                                                  |
-" ----------------------------------------------------------------------
-
-" Disable Signify by default.
-" https://github.com/mhinz/vim-signify
-
-let g:signify_disable_by_default=1
-
-
-" ----------------------------------------------------------------------
-" | Plugins - Syntastic                                                |
-" ----------------------------------------------------------------------
-
-" Inform Syntastic which checkers to use based on file types.
-" https://github.com/scrooloose/syntastic#faq
-
-let g:syntastic_javascript_checkers = [ 'eslint' ]
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Disable syntax checking by default.
-
-let g:syntastic_mode_map = {
-    \ "active_filetypes": [],
-    \ "mode": "passive",
-    \ "passive_filetypes": []
-\}
-
-
-" ----------------------------------------------------------------------
-" | Helper Functions                                                   |
-" ----------------------------------------------------------------------
-
-function! GetGitBranchName()
-
-    let branchName = ""
-
-    if exists("g:loaded_fugitive")
-        let branchName = "[" . fugitive#head() . "]"
-    endif
-
-    return branchName
-
-endfunction
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-function! StripTrailingWhitespaces()
-
-    " Save last search and cursor position.
-
-    let searchHistory = @/
-    let cursorLine = line(".")
-    let cursorColumn = col(".")
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    " Strip trailing whitespaces.
-
-    %s/\s\+$//e
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    " Restore previous search history and cursor position.
-
-    let @/ = searchHistory
-    call cursor(cursorLine, cursorColumn)
-
-
-endfunction
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-function! ToggleLimits()
-
-    " [51,73]
-    "
-    "   * Git commit message
-    "     http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-    "
-    " [81]
-    "
-    "   * general use
-
-    if ( &colorcolumn == "73" )
-        set colorcolumn+=51,81
-    else
-        set colorcolumn-=51,81
-    endif
-
-endfunction
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-function! ToggleRelativeLineNumbers()
-
-    if ( &relativenumber == 1 )
-        set number
-    else
-        set relativenumber
-    endif
-
-endfunction
-
-
-" ----------------------------------------------------------------------
-" | Automatic Commands                                                 |
-" ----------------------------------------------------------------------
-
-if has("autocmd")
-
-    " Autocommand Groups.
-    " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    " Automatically reload the configurations from
-    " the `~/.vimrc` file whenever they are changed.
-
-    augroup auto_reload_vim_configs
-
-        autocmd!
-        autocmd BufWritePost vimrc source $MYVIMRC
-
-    augroup END
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    " Use relative line numbers.
-    " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-
-    augroup relative_line_numbers
-
-        autocmd!
-
-        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        " Automatically switch to absolute
-        " line numbers when Vim loses focus.
-
-        autocmd FocusLost * :set number
-
-        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        " Automatically switch to relative
-        " line numbers when Vim gains focus.
-
-        autocmd FocusGained * :set relativenumber
-
-        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        " Automatically switch to absolute
-        " line numbers when Vim is in insert mode.
-
-        autocmd InsertEnter * :set number
-
-        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        " Automatically switch to relative
-        " line numbers when Vim is in normal mode.
-
-        autocmd InsertLeave * :set relativenumber
-
-
-    augroup END
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    " Automatically strip the trailing
-    " whitespaces when files are saved.
-
-    augroup strip_trailing_whitespaces
-
-        " List of file types for which the trailing whitespaces
-        " should not be removed:
-
-        let excludedFileTypes = []
-
-        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        " Only strip the trailing whitespaces if
-        " the file type is not in the excluded list.
-
-        autocmd!
-        autocmd BufWritePre * if index(excludedFileTypes, &ft) < 0 | :call StripTrailingWhitespaces()
-
-    augroup END
-
-endif
-
-
-" ----------------------------------------------------------------------
-" | Color Scheme                                                       |
-" ----------------------------------------------------------------------
-
-set t_Co=256                   " Enable full-color support.
-
-set background=dark            " Use colors that look good
-                               " on a dark background.
-
-" Set custom configurations for when the
-" Solarized theme is used from Vim's Terminal mode.
-"
-" http://ethanschoonover.com/solarized/vim-colors-solarized#advanced-configuration
-
-if !has("gui_running")
-    let g:solarized_contrast = "high"
-    let g:solarized_termcolors = 256
-    let g:solarized_termtrans = 1
-    let g:solarized_visibility = "high"
-endif
-
-colorscheme solarized          " Use custom color scheme.
-
+colorscheme dracula
 
 " ----------------------------------------------------------------------
 " | Key Mappings                                                       |
@@ -574,82 +607,166 @@ nmap <leader>v :vsp $MYVIMRC<CR>
 
 map <leader>W :w !sudo tee %<CR>
 
+set signcolumn=no
 
 " ----------------------------------------------------------------------
-" | Status Line                                                        |
+" | Plugins - Markdown |
 " ----------------------------------------------------------------------
 
-" Terminal types:
-"
-"   1) term  (normal terminals, e.g.: vt100, xterm)
-"   2) cterm (color terminals, e.g.: MS-DOS console, color-xterm)
-"   3) gui   (GUIs)
+" Disable Folding
+" https://github.com/plasticboy/vim-markdown#disable-folding
 
-highlight ColorColumn
-    \ term=NONE
-    \ cterm=NONE  ctermbg=237    ctermfg=NONE
-    \ gui=NONE    guibg=#073642  guifg=NONE
+let g:vim_markdown_folding_disabled=1
+set conceallevel=0
+let g:vim_markdown_conceal = 0
 
-highlight CursorLine
-    \ term=NONE
-    \ cterm=NONE  ctermbg=235  ctermfg=NONE
-    \ gui=NONE    guibg=#073642  guifg=NONE
+" ----------------------------------------------------------------------
+" | Plugins - NeoComplCache |
+" ----------------------------------------------------------------------
 
-highlight CursorLineNr
-    \ term=bold
-    \ cterm=bold  ctermbg=NONE   ctermfg=178
-    \ gui=bold    guibg=#073642  guifg=Orange
+" Enable `neocomplcache` by default
+" https://github.com/Shougo/neocomplcache.vim#installation
 
-highlight LineNr
-    \ term=NONE
-    \ cterm=NONE  ctermfg=241    ctermbg=NONE
-    \ gui=NONE    guifg=#839497  guibg=#073642
+" let g:neocomplcache_enable_at_startup=1
 
-highlight User1
-    \ term=NONE
-    \ cterm=NONE  ctermbg=237    ctermfg=Grey
-    \ gui=NONE    guibg=#073642  guifg=#839496
+" Make `<TAB>` autocomplete
+" inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+" let g:completor_auto_trigger = 0
+
+
+" ----------------------------------------------------------------------
+" | Plugins - Syntastic |
+" ----------------------------------------------------------------------
+
+
+" Inform Syntastic which checkers to use based on file types
+" https://github.com/scrooloose/syntastic#3-faq
+
+let g:syntastic_html_checkers = [ 'eslint' ]
+let g:syntastic_javascript_checkers = [ 'eslint' ]
+
+" Disable syntax checking by default
+let g:syntastic_mode_map = {
+            \ 'active_filetypes': [],
+            \ 'mode': 'passive',
+            \ 'passive_filetypes': []
+            \}
+
+" ----------------------------------------------------------------------
+" | Helper Functions |
+" ----------------------------------------------------------------------
+function! GetGitBranchName()
+    let branchName = ''
+    if exists('g:loaded_fugitive')
+        let branchName = '[' . fugitive#head() . ']'
+    endif
+
+    return branchName
+
+endfunction
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-set statusline=
-set statusline+=%1*            " User1 highlight
-set statusline+=\ [%n]         " Buffer number
-set statusline+=\ %{GetGitBranchName()}        " Git branch name
-set statusline+=\ [%f]         " File path
-set statusline+=%m             " Modified flag
-set statusline+=%r             " Readonly flag
-set statusline+=%h             " Help file flag
-set statusline+=%w             " Preview window flag
-set statusline+=%y             " File type
-set statusline+=[
-set statusline+=%{&ff}         " File format
-set statusline+=:
-set statusline+=%{strlen(&fenc)?&fenc:'none'}  " File encoding
-set statusline+=]
-set statusline+=%=             " Left/Right separator
-set statusline+=%c             " File encoding
-set statusline+=,
-set statusline+=%l             " Current line number
-set statusline+=/
-set statusline+=%L             " Total number of lines
-set statusline+=\ (%P)\        " Percent through file
+function! StripTrailingWhitespaces()
+    " Save last search and cursor position
+    let searchHistory = @/
+    let cursorLine = line('.')
+    let cursorColumn = col('.')
 
-" Example result:
-"
-"  [1] [master] [vim/vimrc][vim][unix:utf-8]            17,238/381 (59%)
+    " Strip trailing whitespaces
+    %s/\s\+$//e
 
+    " Restore previous search history and cursor position
+    let @/ = searchHistory
+    call cursor(cursorLine, cursorColumn)
+
+endfunction
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function! ToggleLimits()
+
+    " [51,73]
+    " - git commit message
+    " http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+    " [81]
+    " - general use
+
+    if ( &colorcolumn == '73' )
+        set colorcolumn+=51,81
+    else
+        set colorcolumn-=51,81
+    endif
+
+endfunction
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function! ToggleRelativeLineNumbers()
+    if ( &relativenumber == 1 )
+        set number
+    else
+        set relativenumber
+    endif
+endfunction
 
 " ----------------------------------------------------------------------
-" | Local Settings                                                     |
+" | Automatic Commands |
 " ----------------------------------------------------------------------
 
-" Load local settings if they exist.
-"
-" [!] The following needs to remain at the end of this file in
-"     order to allow any of the above settings to be overwritten
-"     by the local ones.
+" [,v ] Make the opening of the `.vimrc` file easier.
 
-if filereadable(glob("~/.vimrc.local"))
-    source ~/.vimrc.local
+nmap <leader>v :vsp $MYVIMRC<CR>
+
+if has('autocmd')
+  :syntax off
+
+    " Autocommand Groups
+    " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+
+    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    " Automatically reload the configurations from the
+    " `~/.vimrc` and `~/.gvimrc` files whenever they are changed
+
+    augroup auto_reload_vim_configs
+
+        autocmd!
+        autocmd BufWritePost vimrc source $MYVIMRC
+
+        if has('gui_running')
+            autocmd BufWritePost gvimrc source $MYGVIMRC
+        endif
+
+    augroup END
+
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Use relative line numbers
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+
+augroup relative_line_numbers
+  autocmd!
+  " Automatically switch to absolute line numbers when vim loses focus
+  autocmd FocusLost * :set number
+  " Automatically switch to relative line numbers when vim gains focus
+  autocmd FocusGained * :set relativenumber
+  " Automatically switch to absolute line numbers when vim is in insert mode
+  autocmd InsertEnter * :set number
+  " Automatically switch to relative line numbers when vim is in normal mode
+  autocmd InsertLeave * :set relativenumber
+augroup END
+
+    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+" Automatically strip the trailing whitespaces when files are saved
+
+augroup strip_trailing_whitespaces
+    " List of file types that use the trailing whitespaces:
+    "
+    " * Markdown
+    " https://daringfireball.net/projects/markdow
+
 endif
