@@ -6,6 +6,7 @@ alias cd..='cd ..'
 alias cat='ccat'
 alias psd='python setup.py develop'
 alias hgw='hg addremove & hg commit -m'
+alias gid="openssl rand -base64 9 | tr [a-z] [A-Z]"
 alias tw='trans -fr'
 alias release-me='curl -LsS https://raw.githubusercontent.com/falcucci/release-me/master/changelog-it.sh | bash -s $1 $2'
 alias npmt='npm run test'

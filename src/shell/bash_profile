@@ -58,3 +58,5 @@ unset -f source_bash_files
 # and time of the last login, the message of the day, etc.).
 
 clear
+
+[[ -s "/Users/falcucci/.gvm/scripts/gvm" ]] && source "/Users/falcucci/.gvm/scripts/gvm"
