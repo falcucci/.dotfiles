@@ -248,6 +248,8 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
+" change store place. 
+let g:marvim_store = '$HOME/.vim/.marvim'
 
 let g:prettier#exec_cmd_path = "/Users/falcucci/.nvm/versions/node/v10.18.1/bin/prettier"
 
