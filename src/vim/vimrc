@@ -237,6 +237,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rking/ag.vim'
   Plug 'wakatime/vim-wakatime'
   Plug 'junegunn/vim-easy-align'
+  Plug 'huyvohcmc/atlas.vim'
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
