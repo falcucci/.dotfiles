@@ -238,6 +238,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wakatime/vim-wakatime'
   Plug 'junegunn/vim-easy-align'
   Plug 'huyvohcmc/atlas.vim'
+  Plug 'chamindra/marvim'
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
@@ -247,6 +248,8 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
+
+let g:prettier#exec_cmd_path = "/Users/falcucci/.nvm/versions/node/v10.18.1/bin/prettier"
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
@@ -363,8 +366,6 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 
 noremap <space> :
 
-nnoremap <F3> :set hlsearch!<CR>
-
 nnoremap <F10> :tabp<CR>
 nnoremap <F12> :tabn<CR>
 
@@ -435,10 +436,6 @@ set ttymouse=xterm2
 
 " copy to dashboard
 :vmap <C-C> "+y"
-
-" Press F2 (toggles the 'paste' option on).
-set pastetoggle=<F2>
-
 
 " using alias to ack: AG
 set runtimepath^=~/.vim/plugins/ag.vim"
