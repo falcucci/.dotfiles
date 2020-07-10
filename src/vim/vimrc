@@ -239,6 +239,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'huyvohcmc/atlas.vim'
   Plug 'chamindra/marvim'
+  Plug 'kkoomen/vim-doge'
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()

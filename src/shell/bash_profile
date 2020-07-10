@@ -59,4 +59,8 @@ unset -f source_bash_files
 
 clear
 
+
+PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+
 [[ -s "/Users/falcucci/.gvm/scripts/gvm" ]] && source "/Users/falcucci/.gvm/scripts/gvm"

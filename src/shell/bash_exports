@@ -81,5 +81,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 export PYTHONIOENCODING="UTF-8"
 
+PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
