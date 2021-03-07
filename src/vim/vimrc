@@ -239,10 +239,27 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'huyvohcmc/atlas.vim'
   Plug 'chamindra/marvim'
-  Plug 'kkoomen/vim-doge'
+  Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
+
+
+" Mapping doge
+" let g:doge_enable_mappings = 1
+" let g:doge_filetype_aliases = 
+"       \    {
+"       \      'javascript': [
+"       \        'js',
+"       \        'javascript.jsx',
+"       \        'javascriptreact',
+"       \        'javascript.tsx',
+"       \        'typescriptreact',
+"       \        'typescript',
+"       \        'typescript.tsx',
+"       \      ],
+"       \    }
+" let g:doge_mapping = '<Leader>d'
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
