@@ -629,7 +629,7 @@ fi
 # Unset anything that just pollutes the global space
 
 
-unset OS
+# unset OS
 
 
 

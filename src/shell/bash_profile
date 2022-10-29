@@ -63,7 +63,7 @@ clear
 PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
 
-export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH
+export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
 [[ -s "/Users/falcucci/.gvm/scripts/gvm" ]] && source "/Users/falcucci/.gvm/scripts/gvm"
 
