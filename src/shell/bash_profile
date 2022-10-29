@@ -63,4 +63,17 @@ clear
 PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
 
+export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH
+
 [[ -s "/Users/falcucci/.gvm/scripts/gvm" ]] && source "/Users/falcucci/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/falcucci/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/falcucci/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/falcucci/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/falcucci/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH

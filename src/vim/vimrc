@@ -217,7 +217,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-misc'
   Plug 'Yggdroot/indentLine'
   Plug 'matze/vim-move'
-  Plug 'honza/vim-snippets'
   Plug 'SirVer/ultisnips'
   Plug 'mileszs/ack.vim'
   Plug 'flazz/vim-colorschemes'
@@ -240,6 +239,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'huyvohcmc/atlas.vim'
   Plug 'chamindra/marvim'
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+  Plug 'metakirby5/codi.vim'
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
@@ -394,12 +394,12 @@ nnoremap <F7> :GundoToggle<CR>
 " nnoremap <buffer> <F9> :exec '!clear;python' shellescape(@%, 1)<cr>
 
 function! RunScript()
-    :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then /Users/falcucci/.nvm/versions/node/v8.9.0/bin/node %; else python %; fi;
+    :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then jnode %; else python3 %; fi;
 endfunction
 map <F9> :call RunScript()<CR>
 
 " nnoremap <buffer> <F9> :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then /home/falcucci/.nvm/versions/node/v8.6.0/bin/node %; fi;
-" map <F9> :w<CR>:!python %<CR>
+" map <F9> :w<CR>:!python3 %<CR>
 
 " use ff to exit from insert mode
 :imap jj <Esc>

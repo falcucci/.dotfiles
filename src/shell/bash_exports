@@ -75,6 +75,7 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
@@ -83,3 +84,5 @@ export PYTHONIOENCODING="UTF-8"
 
 PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
+
+export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH
