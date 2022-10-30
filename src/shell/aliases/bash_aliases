@@ -144,7 +144,8 @@ alias prshow=show_pull_requests_
 alias t='trans :pt'
 
 
-alias tt='trans :en'
+alias tb='trans :en'
+alias typing='tt'
 alias now="cowsay 'Welcome $USER! It's now \[\$(date +%H:%M:%S)\]\'"
 
 
