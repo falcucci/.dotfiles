@@ -10,7 +10,7 @@
 set nocompatible " Don't make vim vi-compatibile
 
 
-syntax off " Enable syntax highlighting
+syntax on " Enable syntax highlighting
 
 
 if has('autocmd')
@@ -174,19 +174,19 @@ set autoread
 " ----------------------------------------------------------------------
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install'}
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc-html', { 'do': 'yarn install'}
   Plug 'neoclide/coc-json', { 'do': 'yarn install'}
   Plug 'neoclide/coc-lists', { 'do': 'yarn install'}
-  Plug 'neoclide/coc-python', { 'do': 'yarn install'}
+  Plug 'fannheyward/coc-pyright', { 'do': 'yarn install'}
   Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
   Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
 
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-  Plug 'junegunn/fzf.vim'
   Plug 'FooSoft/vim-argwrap'
   Plug 'farmergreg/vim-lastplace'
   Plug 'ap/vim-css-color'
@@ -240,6 +240,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'chamindra/marvim'
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
   Plug 'metakirby5/codi.vim'
+  Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
