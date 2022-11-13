@@ -168,6 +168,7 @@ set tags=./tags;/
 
 " improve performance on big files
 set nocursorline
+set cursorline
 
 set autoread
 " ----------------------------------------------------------------------
@@ -179,6 +180,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install'}
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
   Plug 'neoclide/coc-html', { 'do': 'yarn install'}
   Plug 'neoclide/coc-json', { 'do': 'yarn install'}
   Plug 'neoclide/coc-lists', { 'do': 'yarn install'}
@@ -367,7 +369,8 @@ let NERDTreeIgnore = ['\.pyc$']
 map <C-o> :NERDTreeToggle %<CR>
 
 " maps Ctrl+P to toggle ZFZ:
-map <C-p> :FZF<CR>
+" map <C-p> :FZF<CR>
+map <C-p> :FzfPreviewProjectFiles <CR>
 
 " set keyboard shurtcut to close a specific tab
 nnoremap <C-q> :tabclose<CR>
