@@ -167,8 +167,15 @@ set winminheight=0 " Allow windows to be squashed
 set tags=./tags;/
 
 " improve performance on big files
-set nocursorline
-set cursorline
+" set nocursorline
+" set number relativenumber
+:set number
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
 
 set autoread
 " ----------------------------------------------------------------------
@@ -187,7 +194,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'fannheyward/coc-pyright', { 'do': 'yarn install'}
   Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
   Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
+  Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
 
+  Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install'}
+  Plug 'rust-lang/rust.vim'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
   Plug 'FooSoft/vim-argwrap'
@@ -502,6 +512,10 @@ colorscheme dracula
 " Use a different mapleader (default is "\").
 
 let mapleader = ","
+
+" all settings about rust server
+let g:rustfmt_autosave = 1
+let g:rust_recommended_style = 0
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

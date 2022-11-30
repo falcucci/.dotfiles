@@ -84,6 +84,7 @@ export PYTHONIOENCODING="UTF-8"
 
 PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
+export GO111MODULE=auto
 
 export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
