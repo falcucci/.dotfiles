@@ -10,7 +10,7 @@
 set nocompatible " Don't make vim vi-compatibile
 
 
-syntax on " Enable syntax highlighting
+syntax off " Enable syntax highlighting
 
 
 if has('autocmd')
@@ -167,8 +167,8 @@ set winminheight=0 " Allow windows to be squashed
 set tags=./tags;/
 
 " improve performance on big files
-" set nocursorline
 " set number relativenumber
+:set nocursorline
 :set number
 
 :augroup numbertoggle
@@ -254,26 +254,29 @@ call plug#begin('~/.vim/plugged')
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
   Plug 'metakirby5/codi.vim'
   Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
+  " Tagbar will generate tags in memory, allowing you to navitage to
+  " structs, functions, etc. In the current file
+  Plug 'preservim/tagbar'
   " Plug 'chrisbra/Colorizer'
 
 call plug#end()
 
 
 " Mapping doge
-" let g:doge_enable_mappings = 1
-" let g:doge_filetype_aliases = 
-"       \    {
-"       \      'javascript': [
-"       \        'js',
-"       \        'javascript.jsx',
-"       \        'javascriptreact',
-"       \        'javascript.tsx',
-"       \        'typescriptreact',
-"       \        'typescript',
-"       \        'typescript.tsx',
-"       \      ],
-"       \    }
-" let g:doge_mapping = '<Leader>d'
+let g:doge_enable_mappings = 1
+let g:doge_filetype_aliases = 
+      \    {
+      \      'javascript': [
+      \        'js',
+      \        'javascript.jsx',
+      \        'javascriptreact',
+      \        'javascript.tsx',
+      \        'typescriptreact',
+      \        'typescript',
+      \        'typescript.tsx',
+      \      ],
+      \    }
+let g:doge_mapping = '<Leader>d'
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -408,9 +411,18 @@ nnoremap <F7> :GundoToggle<CR>
 
 " nnoremap <buffer> <F9> :exec '!clear;python' shellescape(@%, 1)<cr>
 
+" Runs parsed files
 function! RunScript()
-    :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then jnode %; else python3 %; fi;
-endfunction
+  let commands = 
+        \ {
+        \ "rs": ":RustRun",
+        \ "js": ":! node %",
+        \ "python": ":! python3 %",
+        \ }
+  let extension = expand('%:e')
+  let command = get(commands, extension)
+  execute command
+endf
 map <F9> :call RunScript()<CR>
 
 " nnoremap <buffer> <F9> :.w !if [ "$(echo % | sed 's/^.*\.//')" == "js" ]; then /home/falcucci/.nvm/versions/node/v8.6.0/bin/node %; fi;
@@ -512,6 +524,8 @@ colorscheme dracula
 " Use a different mapleader (default is "\").
 
 let mapleader = ","
+
+syntax enable
 
 " all settings about rust server
 let g:rustfmt_autosave = 1

@@ -16,5 +16,8 @@
     "tsserver.reportStyleChecksAsWarnings": false,
     "javascript.suggestionActions.enabled": false,
     "snippets.ultisnips.usePythonx": false,
-    "tsserver.disableAutomaticTypeAcquisition": false
+    "tsserver.disableAutomaticTypeAcquisition": false,
+    "analyzer.completion.autoimport.enable ": true,
+    "rust-analyzer.imports.granularity.group": "crate",
+    "rust-analyzer.server.path": "/usr/local/bin/rust-analyzer"
 }
