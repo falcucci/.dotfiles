@@ -376,24 +376,22 @@ c() {
 }
 
 
-# f - browse firerox history
+# f - browse Safari history
 f() {
-  local cols sep google_history open
+  local cols sep safari_history open
   cols=$(( COLUMNS / 3 ))
   sep='{::}'
 
 
   if [ "$(uname)" = "Darwin" ]; then
-    google_history="/Users/falcucci/Library/Application Support/Firefox/Profiles/rbj62d01.default-nightly/places.sqlite"
-    open=open
-  else
-    google_history="/Users/falcucci/Library/Application\ Support/Firefox/Profiles/rbj62d01.default-nightly/places.sqlite"
+    safari_history="/Users/falcucci/Library/Safari/History.db"
     open=open
   fi
-  cp -f "$google_history" /tmp/h
+  cp -f "$safari_history" /tmp/h
   sqlite3 -separator $sep /tmp/h \
-    "select substr(title, 1, $cols), url
-     from moz_places order by last_visit_date desc" |
+    "select substr(title, 1, $cols), url from history_visits
+     inner join history_items on history_items.id = history_visits.history_item
+     order by visit_time desc" |
   awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
   fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
 }
