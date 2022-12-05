@@ -350,8 +350,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_dotfiles = 1
 "An example mapping, using the key combo <Leader>; for both normal and insert
 "modes:
-autocmd FileType javascript,css,jinja,jinja2,html nnoremap <silent> <Leader>' :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css,jinja,jinja2,html inoremap <silent> <Leader>' <c-o>:call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css,jinja,jinja2,html,rust nnoremap <silent> <Leader>' :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css,jinja,jinja2,html,rust inoremap <silent> <Leader>' <c-o>:call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript UltiSnipsAddFiletypes html
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
