@@ -362,7 +362,12 @@ noremap <F6> :Autoformat<CR>
 let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 let g:formatters_python = ['autopep8']
 
-map <F8> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+" Enable/Disable the syntax
+:map <F8> :if exists("g:syntax_on") <Bar>
+      \   syntax off <Bar>
+      \ else <Bar>
+      \   syntax enable <Bar>
+      \ endif <CR>
 
 " To override any filetype which was already detected, use this instead (note the 'set filetype=' syntax):
 " au BufRead,BufNewFile *.jinja2 set filetype=jinja
