@@ -387,8 +387,8 @@ let NERDTreeIgnore = ['\.pyc$']
 map <C-o> :NERDTreeToggle %<CR>
 
 " maps Ctrl+P to toggle ZFZ:
-" map <C-p> :FZF<CR>
-map <C-p> :FzfPreviewProjectFiles <CR>
+map <C-p> :FZF<CR>
+" map <C-p> :FzfPreviewProjectFiles <CR>
 
 " set keyboard shurtcut to close a specific tab
 nnoremap <C-q> :tabclose<CR>
