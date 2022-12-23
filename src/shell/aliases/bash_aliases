@@ -163,7 +163,7 @@ git_push_(){
     git push --all
 }
 random_(){
-  git add -A | git commit -am "$(curl -s https://talaikis.com/api/quotes/random/ | jq .quote | sed -e 's/^"//' -e 's/"$//')"; git push --all
+  git add -A | git commit -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
 }
 alias gp=git_push_
 alias gs="git status"

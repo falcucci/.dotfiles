@@ -155,7 +155,8 @@ set noerrorbells " │ Disable beeping and window flashing
 set t_vb= " ┘ https://vim.wikia.com/wiki/Disable_beeping
 
 
-set wildmenu " Enable enhanced command-line
+set wildmenu
+" Enable enhanced command-line
 " completion (by hitting <TAB> in
 " command mode, Vim will show the
 " possible matches just above the
@@ -163,7 +164,8 @@ set wildmenu " Enable enhanced command-line
 " match highlighted)
 
 
-set winminheight=0 " Allow windows to be squashed
+" Allow windows to be squashed
+set winminheight=0 
 set tags=./tags;/
 
 " improve performance on big files
@@ -251,8 +253,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'huyvohcmc/atlas.vim'
   Plug 'chamindra/marvim'
+  Plug 'github/copilot.vim'
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-  Plug 'metakirby5/codi.vim'
   Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
   " Tagbar will generate tags in memory, allowing you to navitage to
   " structs, functions, etc. In the current file
@@ -261,6 +263,24 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+
+" adding copilot keybindings to turns it on and off
+" nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
+" nnoremap <silent> <leader>co :CocCommand copilot.turnOff<CR>
+" nnoremap <silent> <leader>cs :CocCommand copilot.suggest<CR>
+" nnoremap <silent> <leader>ca :CocCommand copilot.accept<CR>
+" nnoremap <silent> <leader>cd :CocCommand copilot.decline<CR>
+" nnoremap <silent> <leader>cr :CocCommand copilot.reset<CR>
+" nnoremap <silent> <leader>cl :CocCommand copilot.learn<CR>
+" nnoremap <silent> <leader>cu :CocCommand copilot.unlearn<CR>
+" nnoremap <silent> <leader>cp :CocCommand copilot.profile<CR>
+" nnoremap <silent> <leader>ct :CocCommand copilot.toggle<CR>
+" nnoremap <silent> <leader>ce :CocCommand copilot.enable<CR>
+
+imap <silent><script><expr> <C-K> copilot#Next()
+imap <silent><script><expr> <C-J> copilot#Suggest()
+
+let g:copilot_enabled = 0
 
 " Mapping doge
 let g:doge_enable_mappings = 1
