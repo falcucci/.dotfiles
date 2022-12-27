@@ -163,7 +163,7 @@ git_push_(){
     git push --all
 }
 random_(){
-  git add -A | git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
+  git add -A && git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
 }
 alias gp=git_push_
 alias gs="git status"
