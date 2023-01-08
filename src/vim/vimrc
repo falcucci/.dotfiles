@@ -219,6 +219,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-session'
   " use the command cgn to replace instead
   " https://vimtricks.com/p/vim-find-next/
+  "
   Plug 'terryma/vim-multiple-cursors'
   Plug 'itchyny/vim-cursorword'
   Plug 'fisadev/vim-isort'
@@ -262,6 +263,8 @@ call plug#begin('~/.vim/plugged')
   " structs, functions, etc. In the current file
   Plug 'preservim/tagbar'
   " Plug 'chrisbra/Colorizer'
+  Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+  Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 call plug#end()
 
