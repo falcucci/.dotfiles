@@ -218,6 +218,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
   Plug 'xolox/vim-session'
   " use the command cgn to replace instead
+  " https://vimtricks.com/p/vim-find-next/
   Plug 'terryma/vim-multiple-cursors'
   Plug 'itchyny/vim-cursorword'
   Plug 'fisadev/vim-isort'
