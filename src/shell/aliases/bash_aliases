@@ -160,15 +160,19 @@ git_commit_(){
 }
 alias gc=git_commit_
 git_push_(){
-    git push --all
+    git push origin $(git rev-parse --abbrev-ref HEAD)
 }
 random_(){
   git add -A && git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
+}
+gpt_(){
+  cligpt "$1"
 }
 alias gp=git_push_
 alias gs="git status"
 alias gb="git branch"
 alias gr=random_
+alias gpt=gpt_
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere
