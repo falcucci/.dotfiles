@@ -78,3 +78,5 @@ if [ -f '/Users/falcucci/Downloads/google-cloud-sdk/completion.bash.inc' ]; then
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 . "$HOME/.cargo/env"
+
+export PATH="$PATH:/Users/falcucci/.bin"

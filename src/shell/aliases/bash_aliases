@@ -165,6 +165,8 @@ git_push_(){
 random_(){
   git add -A && git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
 }
+
+# https://github.com/paij0se/cligpt
 gpt_(){
   cligpt "$1"
 }
