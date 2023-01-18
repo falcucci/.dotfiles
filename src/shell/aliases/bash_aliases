@@ -166,15 +166,31 @@ random_(){
   git add -A && git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
 }
 
+auto_issue_(){
+  gpt "generate an issue description with three paragraphs about the following title: $1"
+}
+
+autodaily_() {
+  gpt "describe item by item what I have done today with four paragraphs based on the the following tasks: $(gh issue list)"
+}
+
 # https://github.com/paij0se/cligpt
 gpt_(){
   cligpt "$1"
 }
+
+what_i_did_today_()  {
+ gh search issues --assignee=@me
+}
+
 alias gp=git_push_
 alias gs="git status"
 alias gb="git branch"
 alias gr=random_
 alias gpt=gpt_
+alias autoissue=auto_issue_
+alias autodaily=autodaily_
+alias taskstoday=what_i_did_today_
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere
