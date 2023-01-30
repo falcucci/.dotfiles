@@ -170,6 +170,10 @@ auto_issue_(){
   gpt "generate an issue description with three paragraphs about the following title: $1"
 }
 
+docstring_(){
+  gpt "generate a docstring in $1 for the folowing code and params: $2"
+}
+
 autodaily_() {
   gpt "describe item by item what I have done today with four paragraphs based on the the following tasks: $(gh issue list)"
 }
@@ -183,14 +187,20 @@ what_i_did_today_()  {
  gh search issues --assignee=@me
 }
 
+typing_test_() {
+  curl -LsS https://raw.githubusercontent.com/lemnos/tt/master/src/tt.go |  head -n 20 | tt -noskip -raw
+}
+
 alias gp=git_push_
 alias gs="git status"
 alias gb="git branch"
 alias gr=random_
 alias gpt=gpt_
 alias autoissue=auto_issue_
+alias docstring=docstring_
 alias autodaily=autodaily_
 alias taskstoday=what_i_did_today_
+alias typecode=typing_test_
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere

@@ -12,6 +12,7 @@
     "coc.preferences.diagnostic.enable": false,
     "tsserver.orgnizeImportOnSave": true,
     "suggest.autoTrigger": ["trigger"],
+    "python.linting.ruffEnabled" true,
     "coc.preferences.jumpCommand": "tab drop",
     "tsserver.reportStyleChecksAsWarnings": false,
     "javascript.suggestionActions.enabled": false,
