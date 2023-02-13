@@ -12,7 +12,12 @@
     "coc.preferences.diagnostic.enable": false,
     "tsserver.orgnizeImportOnSave": true,
     "suggest.autoTrigger": ["trigger"],
-    "python.linting.ruffEnabled" true,
+    "languageserver": {
+        "ruff-lsp": {
+            "command": "ruff-lsp",
+            "filetypes": ["python"]
+        }
+    },
     "coc.preferences.jumpCommand": "tab drop",
     "tsserver.reportStyleChecksAsWarnings": false,
     "javascript.suggestionActions.enabled": false,

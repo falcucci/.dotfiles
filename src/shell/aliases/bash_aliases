@@ -175,7 +175,7 @@ docstring_(){
 }
 
 autodaily_() {
-  gpt "describe item by item what I have done today with four paragraphs based on the the following tasks: $(gh issue list)"
+  gpt "describe item by item what I have done today with four paragraphs based on the the following tasks: $(gh search issues --author "@me")"
 }
 
 # https://github.com/paij0se/cligpt
@@ -201,6 +201,8 @@ alias docstring=docstring_
 alias autodaily=autodaily_
 alias taskstoday=what_i_did_today_
 alias typecode=typing_test_
+alias italian="trans :it $1"
+alias move="genact -s 10"
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere
