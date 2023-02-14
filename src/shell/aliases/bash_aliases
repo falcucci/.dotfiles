@@ -162,11 +162,11 @@ random_(){
 }
 
 gpt_commit_(){
-  gpt "describe well a commit in raw markdown mode with a title,  two paragraphs and then the body based on this diff: \n $(git diff --staged | awk '{ print tolower($0) }')"
+  gpt "describe well a commit in raw markdown mode with a title,  two paragraphs and then the body based on this diff: \n $(git diff --staged)"
 }
 
 commit_() {
-  git add -A && git commit -e -am "$(gpt_commit)"; 
+  git add -A && git commit -e -am "$(gpt_commit | awk '{ print tolower($0) }')"; 
 }
 
 auto_issue_(){
