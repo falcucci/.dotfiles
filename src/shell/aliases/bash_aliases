@@ -166,7 +166,7 @@ gpt_commit_(){
 }
 
 commit_() {
-  git add -A && git commit -e -am "$(commit)"; 
+  git add -A && git commit -e -am "$(gpt_commit)"; 
 }
 
 auto_issue_(){
@@ -194,6 +194,7 @@ typing_test_() {
   curl -LsS https://raw.githubusercontent.com/lemnos/tt/master/src/tt.go |  head -n 20 | tt -noskip -raw
 }
 
+alias gpt_commit=gpt_commit_
 alias commit=commit_
 alias gp=git_push_
 alias gs="git status"
