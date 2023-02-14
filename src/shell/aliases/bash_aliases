@@ -22,11 +22,6 @@ alias pmd=openpomodoro-cli
 alias hgs='hg status'
 alias mdev='hg merge development'
 alias hud='hg update development'
-# default commit command
-commit_(){
-    hg commit -m "$(hg branch) - $1"
-}
-alias hgc=commit_
 # default push command
 push_(){
     hg push -b $(hg branch)
@@ -166,6 +161,14 @@ random_(){
   git add -A && git commit -e -am "$(auto-commit --dry-run | awk '{ print tolower($0) }')";
 }
 
+gpt_commit_(){
+  gpt "describe well a commit in raw markdown mode with a title,  two paragraphs and then the body based on this diff: \n $(git diff --staged | awk '{ print tolower($0) }')"
+}
+
+commit_() {
+  git add -A && git commit -e -am "$(commit)"; 
+}
+
 auto_issue_(){
   gpt "generate an issue description with three paragraphs about the following title: $1"
 }
@@ -191,6 +194,7 @@ typing_test_() {
   curl -LsS https://raw.githubusercontent.com/lemnos/tt/master/src/tt.go |  head -n 20 | tt -noskip -raw
 }
 
+alias commit=commit_
 alias gp=git_push_
 alias gs="git status"
 alias gb="git branch"
