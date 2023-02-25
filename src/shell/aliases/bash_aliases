@@ -194,6 +194,10 @@ typing_test_() {
   curl -LsS https://raw.githubusercontent.com/lemnos/tt/master/src/tt.go |  head -n 20 | tt -noskip -raw
 }
 
+answerec_() {
+  gpt "I'll add and offter message from a recruiter and you answer kindly and add my calendar link https://cal.com/falcucci to schedule a call: $1"
+}
+
 alias gpt_commit=gpt_commit_
 alias commit=commit_
 alias gp=git_push_
@@ -202,6 +206,7 @@ alias gb="git branch"
 alias gr=random_
 alias gpt=gpt_
 alias autoissue=auto_issue_
+alias answerec=answerec_
 alias docstring=docstring_
 alias autodaily=autodaily_
 alias taskstoday=what_i_did_today_
