@@ -12,6 +12,15 @@ set nocompatible " Don't make vim vi-compatibile
 
 syntax off " Enable syntax highlighting
 
+if !has('nvim')
+  " added mouse support on vim xD
+  set mouse=a
+  " Set this to the name of your terminal that supports mouse codes.
+  " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+  set ttymouse=xterm2
+endif
+
+
 
 if has('autocmd')
     :silent !stty -ixon
@@ -501,12 +510,6 @@ let g:user_emmet_leader_key='<C-E>'
 
 
 " ----------------------------------------------------------------------
-" added mouse support on vim xD
-set mouse=a
-
-" Set this to the name of your terminal that supports mouse codes.
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
 
 " save any file with Ctrl + S
 :nmap <c-s> :w<CR>
@@ -815,3 +818,31 @@ endif
 
 
 autocmd CompleteDone * if pumvisible() == 0 | :redraw!  | endif
+
+ " Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif

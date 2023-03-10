@@ -11,7 +11,7 @@
     "exclude": ["node_modules", "**/node_modules/*"],
     "coc.preferences.diagnostic.enable": false,
     "tsserver.orgnizeImportOnSave": true,
-    "suggest.autoTrigger": ["trigger"],
+    "suggest.autoTrigger": "always", // "trigger"
     "languageserver": {
         "ruff-lsp": {
             "command": "ruff-lsp",
@@ -23,7 +23,7 @@
     "javascript.suggestionActions.enabled": false,
     "snippets.ultisnips.usePythonx": false,
     "tsserver.disableAutomaticTypeAcquisition": false,
-    "analyzer.completion.autoimport.enable ": true,
+    "rust-analyzer.completion.autoimport.enable": true,
     "rust-analyzer.imports.granularity.group": "crate",
     "rust-analyzer.server.path": "/usr/local/bin/rust-analyzer"
 }

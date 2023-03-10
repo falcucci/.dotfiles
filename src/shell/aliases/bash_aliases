@@ -213,6 +213,7 @@ alias taskstoday=what_i_did_today_
 alias typecode=typing_test_
 alias italian="trans :it $1"
 alias move="genact -s 10"
+alias nv="neovide $1"
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere
