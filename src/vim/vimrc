@@ -176,7 +176,7 @@ set wildmenu
 
 
 " Allow windows to be squashed
-set winminheight=0 
+set winminheight=0
 set tags=./tags;/
 
 " improve performance on big files
@@ -287,6 +287,8 @@ call plug#end()
 " set shellcmdflag=-ic
 
 
+command Float :FloatermToggle
+
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
 " nnoremap <silent> <leader>co :CocCommand copilot.turnOff<CR>
@@ -307,7 +309,7 @@ let g:copilot_enabled = 0
 
 " Mapping doge
 let g:doge_enable_mappings = 1
-let g:doge_filetype_aliases = 
+let g:doge_filetype_aliases =
       \    {
       \      'javascript': [
       \        'js',
@@ -326,7 +328,7 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
-" change store place. 
+" change store place.
 let g:marvim_store = '$HOME/.vim/.marvim'
 
 let g:prettier#exec_cmd_path = "/Users/falcucci/.nvm/versions/node/v10.18.1/bin/prettier"
@@ -461,7 +463,7 @@ nnoremap <F7> :GundoToggle<CR>
 
 " Runs parsed files
 function! RunScript()
-  let commands = 
+  let commands =
         \ {
         \ "rs": ":RustRun",
         \ "js": ":! node %",
