@@ -6,6 +6,8 @@
 " Pathogen exec
 " execute pathogen#infect()
 
+" load all the new aliases
+let $BASH_ENV = "~/.bash_aliases"
 
 set nocompatible " Don't make vim vi-compatibile
 
@@ -274,8 +276,15 @@ call plug#begin('~/.vim/plugged')
   " Plug 'chrisbra/Colorizer'
   Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
   Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+  Plug 'skywind3000/asyncrun.vim'
+  Plug 'voldikss/vim-floaterm'
+  Plug 'voldikss/fzf-floaterm'
 
 call plug#end()
+
+
+" make it interactive to turn on all my aliases
+" set shellcmdflag=-ic
 
 
 " adding copilot keybindings to turns it on and off
