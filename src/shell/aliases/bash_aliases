@@ -196,7 +196,7 @@ typing_test_() {
 }
 
 answerec_() {
-  gpt "I'll add and offter message from a recruiter and you answer kindly and add my calendar link https://cal.com/falcucci to schedule a call: $1"
+  gpt "I'll add an job opportunity from a recruiter and you must give me a consistent answer, add my calendar link https://cal.com/falcucci to schedule a call and don't say which time I am available: $1"
 }
 
 alias gpt_commit=gpt_commit_
