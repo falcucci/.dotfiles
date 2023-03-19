@@ -15,6 +15,8 @@ set nocompatible " Don't make vim vi-compatibile
 syntax off " Enable syntax highlighting
 
 if !has('nvim')
+  " Set directory for undo files
+  set undodir=~/.vim/undos
   " added mouse support on vim xD
   set mouse=a
   " Set this to the name of your terminal that supports mouse codes.
@@ -155,7 +157,6 @@ set shiftwidth=2 " │ http://vimcasts.org/e/2
 set expandtab " ┘
 
 set ttyfast " Enable fast terminal connection
-set undodir=~/.vim/undos " Set directory for undo files
 set undofile " Automatically save undo history
 set virtualedit=all " Allow cursor to be anywhere
 
@@ -279,6 +280,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'voldikss/vim-floaterm'
   Plug 'voldikss/fzf-floaterm'
   Plug 'mbbill/undotree'
+  Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
@@ -286,6 +288,8 @@ call plug#end()
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
 
+ let g:smoothie_speed_constant_factor = 25
+ let g:smoothie_speed_linear_factor = 25
 
 command Float :FloatermToggle
 
@@ -875,6 +879,9 @@ if exists("g:neovide")
   let g:neovide_remember_window_size = v:true
 
   let g:neovide_input_use_logo = v:true  " v:true on macOS
+
+  " enable copilot
+  let g:copilot_enabled = 1
 
 endif
 
