@@ -288,10 +288,12 @@ call plug#end()
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
 
-"  let g:smoothie_speed_constant_factor = 25
-"  let g:smoothie_speed_linear_factor = 25
+"  let g:smoothie_speed_constant_factor = 40
+"  let g:smoothie_speed_linear_factor = 40
+"  let g:smoothie_speed_exponentiation_factor = 0.9
 
 command Float :FloatermToggle
+let g:floaterm_keymap_toggle = '<F7>'
 
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
@@ -464,8 +466,6 @@ noremap <space> :
 nnoremap <F10> :tabp<CR>
 nnoremap <F12> :tabn<CR>
 
-nnoremap <F7> :GundoToggle<CR>
-
 " nnoremap <buffer> <F9> :exec '!clear;python' shellescape(@%, 1)<cr>
 
 " Runs parsed files
@@ -598,7 +598,7 @@ map <leader>cc :TComment<CR>
 
 
 " open a new float term
-map <leader>f :FloatermToggle<CR>
+map <leader>f :FloatermNew<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -880,8 +880,8 @@ if exists("g:neovide")
   set guifont=Monaco:h20:b
 
   let g:neovide_transparency = 0.0
-  let g:transparency = 0.8
-  let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+  let g:transparency = 0.0
+  let g:neovide_background_color = '#000'
 "
   "Remember Previous Window Size
   let g:neovide_remember_window_size = v:true
@@ -889,7 +889,7 @@ if exists("g:neovide")
   let g:neovide_input_use_logo = v:true  " v:true on macOS
 
   " enable copilot
-  let g:copilot_enabled = 0
+  let g:copilot_enabled = 1
 
   " Allow copy paste in neovim
   let g:neovide_input_use_logo = 1
