@@ -215,6 +215,7 @@ alias gs="git status"
 alias gb="git branch"
 alias gr=random_
 alias gpt=gpt_
+alias git-open="gh browse"
 alias autoissue=auto_issue_
 alias answerec=answerec_
 alias docstring=docstring_

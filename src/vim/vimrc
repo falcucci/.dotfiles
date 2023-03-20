@@ -872,6 +872,7 @@ else
 endif
 
 if exists("g:neovide")
+  :syntax on
   " Start NERDTree when Vim starts with a directory argument.
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
         \ execute 'cd '.argv()[0] | endif
@@ -890,6 +891,12 @@ if exists("g:neovide")
   " enable copilot
   let g:copilot_enabled = 0
 
-  :syntax on
+  " Allow copy paste in neovim
+  let g:neovide_input_use_logo = 1
+  map <D-v> "+p<CR>
+  map! <D-v> <C-R>+
+  tmap <D-v> <C-R>+
+  vmap <D-c> "+y<CR> 
+
 endif
 
