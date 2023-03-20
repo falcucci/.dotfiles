@@ -266,7 +266,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wakatime/vim-wakatime'
   Plug 'junegunn/vim-easy-align'
   Plug 'huyvohcmc/atlas.vim'
-  Plug 'chamindra/marvim'
+  " Plug 'chamindra/marvim'
   Plug 'github/copilot.vim'
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
   Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
@@ -280,7 +280,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'voldikss/vim-floaterm'
   Plug 'voldikss/fzf-floaterm'
   Plug 'mbbill/undotree'
-  Plug 'psliwka/vim-smoothie'
+  " Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
@@ -288,8 +288,8 @@ call plug#end()
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
 
- let g:smoothie_speed_constant_factor = 25
- let g:smoothie_speed_linear_factor = 25
+"  let g:smoothie_speed_constant_factor = 25
+"  let g:smoothie_speed_linear_factor = 25
 
 command Float :FloatermToggle
 
@@ -333,7 +333,7 @@ xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
 " change store place.
-let g:marvim_store = '$HOME/.vim/.marvim'
+" let g:marvim_store = '$HOME/.vim/.marvim'
 
 let g:prettier#exec_cmd_path = "/Users/falcucci/.nvm/versions/node/v10.18.1/bin/prettier"
 
@@ -426,8 +426,11 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " | Plugins - NerdTree |
 " ----------------------------------------------------------------------
 " NERDTree automatically when vim starts up if no files were specified
+
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+if !exists("g:neovide")
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+endif
 autocmd VimEnter * set background=dark
 " not show .pyc files on nerdtree
 let NERDTreeIgnore = ['\.pyc$']
@@ -638,7 +641,9 @@ nmap <leader>ss :call StripTrailingWhitespaces()<CR>
 
 " [,t ] Toggle NERDTree.
 
+" map <leader>t :NERDTreeToggle<CR>
 map <leader>t :NERDTreeToggle<CR>
+
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -867,7 +872,9 @@ else
 endif
 
 if exists("g:neovide")
-  :syntax on
+  " Start NERDTree when Vim starts with a directory argument.
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+        \ execute 'cd '.argv()[0] | endif
 
   set guifont=Monaco:h20:b
 
@@ -881,7 +888,8 @@ if exists("g:neovide")
   let g:neovide_input_use_logo = v:true  " v:true on macOS
 
   " enable copilot
-  let g:copilot_enabled = 1
+  let g:copilot_enabled = 0
 
+  :syntax on
 endif
 

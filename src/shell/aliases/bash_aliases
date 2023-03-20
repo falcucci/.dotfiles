@@ -199,6 +199,15 @@ answerec_() {
   gpt "I'll add an job opportunity from a recruiter and you must give me a consistent answer, add my calendar link https://cal.com/falcucci to schedule a call and don't say which time I am available: $1"
 }
 
+open_neovide_(){
+  if [ "$1" != "" ]
+  then
+    open /Users/falcucci/neovide/target/release/bundle/osx/Neovide.app --args $PWD/$1 --multigrid
+  else
+    open /Users/falcucci/neovide/target/release/bundle/osx/Neovide.app --args $PWD --multigrid
+  fi
+}
+
 alias gpt_commit=gpt_commit_
 alias commit=commit_
 alias gp=git_push_
@@ -214,7 +223,8 @@ alias taskstoday=what_i_did_today_
 alias typecode=typing_test_
 alias italian="trans :it $1"
 alias move="genact -s 10"
-alias nv="neovide $1"
+# alias nv="neovide --multigrid $1"
+alias nv=open_neovide_
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere
