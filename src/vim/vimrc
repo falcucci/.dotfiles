@@ -311,7 +311,7 @@ let g:floaterm_keymap_toggle = '<F7>'
 imap <silent><script><expr> <C-K> copilot#Next()
 imap <silent><script><expr> <C-J> copilot#Suggest()
 
-let g:copilot_enabled = 0
+let g:copilot_enabled = 1
 
 " Mapping doge
 let g:doge_enable_mappings = 1
@@ -866,6 +866,8 @@ endfunction
 
 " Use <c-space> to trigger completion
 if has('nvim')
+  :syntax on
+  let g:copilot_enabled = 1
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
