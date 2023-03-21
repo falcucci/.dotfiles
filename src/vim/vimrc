@@ -900,5 +900,8 @@ if exists("g:neovide")
   tmap <D-v> <C-R>+
   vmap <D-c> "+y<CR> 
 
+  nnoremap <silent> <D-Left> :tabp<CR>
+  nnoremap <silent> <D-Right> :tabn<CR>
+
 endif
 
