@@ -873,6 +873,9 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" exit from terminal mode
+:tnoremap <Esc> <C-\><C-n>
+
 if exists("g:neovide")
   :syntax on
   " Start NERDTree when Vim starts with a directory argument.
