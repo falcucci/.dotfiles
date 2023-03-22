@@ -295,6 +295,10 @@ call plug#end()
 command Float :FloatermToggle
 let g:floaterm_keymap_toggle = '<F7>'
 
+" reload vim with the latest configuration
+command Reload :source $MYVIMRC 
+noremap <F5> :Reload <CR>
+
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
 " nnoremap <silent> <leader>co :CocCommand copilot.turnOff<CR>
@@ -391,6 +395,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 " avoid to save the sessions automatically bc I am using them
 " as a workapace manager
 let g:session_autosave = 'no'
+let g:session_autosave_to = 'no'
 
 " Don't save hidden and unloaded buffers in sessions.
 " set sessionoptions-=buffers
@@ -408,8 +413,6 @@ autocmd FileType javascript,css,jinja,jinja2,html,rust inoremap <silent> <Leader
 autocmd FileType javascript UltiSnipsAddFiletypes html
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
-noremap <F5> :SyntasticCheck <CR>
-noremap <F4> :SyntasticReset <CR>
 " [,space] Auto format python pep8
 noremap <F6> :Autoformat<CR>
 let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
@@ -915,6 +918,6 @@ if exists("g:neovide")
   nnoremap <silent> <D-Left> :tabp<CR>
   nnoremap <silent> <D-Right> :tabn<CR>
 
-  noremap <F5> :call MakeNeovideTransparentAndCharm() <CR>
+  noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
 
 endif
