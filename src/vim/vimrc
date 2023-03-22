@@ -24,18 +24,16 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-
-
 if has('autocmd')
-    :silent !stty -ixon
-    filetype plugin indent on
-    " HTTPs://github.com/rhysd/nyaovim-mini-browser
-    filetype plugin on
+  :silent !stty -ixon
+  filetype plugin indent on
+  " HTTPs://github.com/rhysd/nyaovim-mini-browser
+  filetype plugin on
 
 
-    " │ │ └──── Enable file type detection
-    " │ └───────── Enable loading of indent file
-    " └─────────────── Enable loading of plugin files
+  " │ │ └──── Enable file type detection
+  " │ └───────── Enable loading of indent file
+  " └─────────────── Enable loading of plugin files
 endif
 
 
@@ -58,7 +56,7 @@ set backupskip+=/private/tmp/* " ┘ for certain files
 set clipboard=unnamed " ┐
 " │ Use the system clipboard
 if has('unnamedplus') " │ as the default register
-    set clipboard+=unnamedplus " │
+  set clipboard+=unnamedplus " │
 endif " ┘
 
 
@@ -97,7 +95,6 @@ set signcolumn=yes
 
 set incsearch " Highlight search pattern as
 " it is being typed
-
 
 set laststatus=2 " Always show the status line
 
@@ -196,91 +193,91 @@ set autoread
 " ----------------------------------------------------------------------
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
-  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-tsserver', {'do': 'yarn install'}
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-  Plug 'neoclide/coc-html', { 'do': 'yarn install'}
-  Plug 'neoclide/coc-json', { 'do': 'yarn install'}
-  Plug 'neoclide/coc-lists', { 'do': 'yarn install'}
-  Plug 'fannheyward/coc-pyright', { 'do': 'yarn install'}
-  Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
-  Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
-  Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'neoclide/coc-html', { 'do': 'yarn install'}
+Plug 'neoclide/coc-json', { 'do': 'yarn install'}
+Plug 'neoclide/coc-lists', { 'do': 'yarn install'}
+Plug 'fannheyward/coc-pyright', { 'do': 'yarn install'}
+Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
+Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
+Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
 
-  Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install'}
-  Plug 'rust-lang/rust.vim'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install'}
+Plug 'rust-lang/rust.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-  Plug 'FooSoft/vim-argwrap'
-  Plug 'farmergreg/vim-lastplace'
-  Plug 'ap/vim-css-color'
-  Plug 'epilande/vim-es2015-snippets'
-  Plug 'alvan/vim-closetag'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'hynek/vim-python-pep8-indent'
-  Plug 'flazz/vim-colorschemes'
-  Plug 'ewilazarus/preto'
-  Plug 'morhetz/gruvbox'
-  Plug 'Yggdroot/indentLine'
-  Plug 'scrooloose/syntastic'
-  Plug 'honza/vim-snippets'
-  Plug 'xolox/vim-session'
-  " use the command cgn to replace instead
-  " https://vimtricks.com/p/vim-find-next/
-  "
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'itchyny/vim-cursorword'
-  Plug 'fisadev/vim-isort'
-  Plug 'Valloric/MatchTagAlways'
-  Plug 'bogado/file-line'
-  Plug 'Chiel92/vim-autoformat'
-  Plug 'tpope/vim-abolish'
-  Plug 'heavenshell/vim-pydocstring'
-  Plug 'lfilho/cosco.vim'
-  Plug 'ekalinin/Dockerfile.vim'
-  Plug 'fatih/vim-go'
-  Plug 'pangloss/vim-javascript'
-  Plug 'xolox/vim-misc'
-  Plug 'Yggdroot/indentLine'
-  Plug 'matze/vim-move'
-  Plug 'SirVer/ultisnips'
-  Plug 'mileszs/ack.vim'
-  Plug 'flazz/vim-colorschemes'
-  Plug 'shougo/neosnippet'
-  Plug 'shougo/neosnippet-snippets'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-surround'
-  Plug 'hynek/vim-python-pep8-indent'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'godlygeek/tabular'
-  Plug 'othree/html5.vim'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'raimondi/delimitmate'
-  Plug 'scrooloose/nerdtree'
-  Plug 'rking/ag.vim'
-  Plug 'wakatime/vim-wakatime'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'huyvohcmc/atlas.vim'
-  " Plug 'chamindra/marvim'
-  Plug 'github/copilot.vim'
-  Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-  Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
-  " Tagbar will generate tags in memory, allowing you to navitage to
-  " structs, functions, etc. In the current file
-  Plug 'preservim/tagbar'
-  " Plug 'chrisbra/Colorizer'
-  Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
-  Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
-  Plug 'skywind3000/asyncrun.vim'
-  Plug 'voldikss/vim-floaterm'
-  Plug 'voldikss/fzf-floaterm'
-  Plug 'mbbill/undotree'
-  " Plug 'psliwka/vim-smoothie'
+Plug 'FooSoft/vim-argwrap'
+Plug 'farmergreg/vim-lastplace'
+Plug 'ap/vim-css-color'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'alvan/vim-closetag'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tomtom/tcomment_vim'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'flazz/vim-colorschemes'
+Plug 'ewilazarus/preto'
+Plug 'morhetz/gruvbox'
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/syntastic'
+Plug 'honza/vim-snippets'
+Plug 'xolox/vim-session'
+" use the command cgn to replace instead
+" https://vimtricks.com/p/vim-find-next/
+"
+Plug 'terryma/vim-multiple-cursors'
+Plug 'itchyny/vim-cursorword'
+Plug 'fisadev/vim-isort'
+Plug 'Valloric/MatchTagAlways'
+Plug 'bogado/file-line'
+Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-abolish'
+Plug 'heavenshell/vim-pydocstring'
+Plug 'lfilho/cosco.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fatih/vim-go'
+Plug 'pangloss/vim-javascript'
+Plug 'xolox/vim-misc'
+Plug 'Yggdroot/indentLine'
+Plug 'matze/vim-move'
+Plug 'SirVer/ultisnips'
+Plug 'mileszs/ack.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'shougo/neosnippet'
+Plug 'shougo/neosnippet-snippets'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular'
+Plug 'othree/html5.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'raimondi/delimitmate'
+Plug 'scrooloose/nerdtree'
+Plug 'rking/ag.vim'
+Plug 'wakatime/vim-wakatime'
+Plug 'junegunn/vim-easy-align'
+Plug 'huyvohcmc/atlas.vim'
+" Plug 'chamindra/marvim'
+Plug 'github/copilot.vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
+" Tagbar will generate tags in memory, allowing you to navitage to
+" structs, functions, etc. In the current file
+Plug 'preservim/tagbar'
+" Plug 'chrisbra/Colorizer'
+Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+Plug 'skywind3000/asyncrun.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/fzf-floaterm'
+Plug 'mbbill/undotree'
+" Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
@@ -296,7 +293,7 @@ command Float :FloatermToggle
 let g:floaterm_keymap_toggle = '<F7>'
 
 " reload vim with the latest configuration
-command Reload :source $MYVIMRC 
+command Reload :source $MYVIMRC
 noremap <F5> :Reload <CR>
 
 " adding copilot keybindings to turns it on and off
@@ -354,24 +351,24 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 if executable('ag')
-    let $FZF_DEFAULT_COMMAND='ag --ignore=*.pyc -g ""'
+  let $FZF_DEFAULT_COMMAND='ag --ignore=*.pyc -g ""'
 endif
 
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-            \ { 'fg': ['fg', 'Normal'],
-            \ 'bg': ['bg', 'Normal'],
-            \ 'hl': ['fg', 'Comment'],
-            \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+': ['fg', 'Statement'],
-            \ 'info': ['fg', 'PreProc'],
-            \ 'prompt': ['fg', 'Conditional'],
-            \ 'pointer': ['fg', 'Exception'],
-            \ 'marker': ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header': ['fg', 'Comment'] }
+      \ { 'fg': ['fg', 'Normal'],
+      \ 'bg': ['bg', 'Normal'],
+      \ 'hl': ['fg', 'Comment'],
+      \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+': ['fg', 'Statement'],
+      \ 'info': ['fg', 'PreProc'],
+      \ 'prompt': ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker': ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header': ['fg', 'Comment'] }
 
 " Use Vundle to manage the vim plugins
 " https://github.com/gmarik/Vundle.vim
@@ -379,12 +376,12 @@ let g:fzf_colors =
 filetype on
 
 let g:mta_filetypes = {
-            \ 'html' : 1,
-            \ 'xhtml' : 1,
-            \ 'xml' : 1,
-            \ 'jinja' : 1,
-            \ 'javascript' : 1,
-            \}
+      \ 'html' : 1,
+      \ 'xhtml' : 1,
+      \ 'xml' : 1,
+      \ 'jinja' : 1,
+      \ 'javascript' : 1,
+      \}
 
 let g:jsx_ext_required = 0
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -442,8 +439,11 @@ autocmd VimEnter * set background=dark
 " not show .pyc files on nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 
-" maps Ctrl+o to toggle nerdtree in the dir of the current buffer:
+" maps Ctr+lo to toggle nerdtree in the dir of the current buffer:
 map <C-o> :NERDTreeToggle %<CR>
+
+" maps Ctrl+l to search for the current word in the current directory:
+map <C-i> :Rg<CR>
 
 " maps Ctrl+P to toggle ZFZ:
 map <C-p> :FZF<CR>
@@ -550,9 +550,9 @@ let g:ag_prg='ag -S --nocolor --nogroup --column --ignore node_modules'
 " let &colorcolumn=join(range(81,999),",")
 " let &colorcolumn="100,".join(range(400,999),",")
 if exists('+colorcolumn')
-set colorcolumn=200
+  set colorcolumn=200
 else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 endif
 
 " ----------------------------------------------------------------------
@@ -565,12 +565,12 @@ endif
 let g:indent_guides_auto_colors = 0
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd
-            \ guibg=#00323D
-            \ ctermbg=Magenta
+      \ guibg=#00323D
+      \ ctermbg=Magenta
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
-            \ guibg=#073642
-            \ ctermbg=DarkMagenta
+      \ guibg=#073642
+      \ ctermbg=DarkMagenta
 
 colorscheme dracula
 
@@ -720,38 +720,38 @@ let g:syntastic_javascript_checkers = [ 'eslint' ]
 
 " Disable syntax checking by default
 let g:syntastic_mode_map = {
-            \ 'active_filetypes': [],
-            \ 'mode': 'passive',
-            \ 'passive_filetypes': []
-            \}
+      \ 'active_filetypes': [],
+      \ 'mode': 'passive',
+      \ 'passive_filetypes': []
+      \}
 
 " ----------------------------------------------------------------------
 " | Helper Functions |
 " ----------------------------------------------------------------------
 function! GetGitBranchName()
-    let branchName = ''
-    if exists('g:loaded_fugitive')
-        let branchName = '[' . fugitive#head() . ']'
-    endif
+  let branchName = ''
+  if exists('g:loaded_fugitive')
+    let branchName = '[' . fugitive#head() . ']'
+  endif
 
-    return branchName
+  return branchName
 
 endfunction
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function! StripTrailingWhitespaces()
-    " Save last search and cursor position
-    let searchHistory = @/
-    let cursorLine = line('.')
-    let cursorColumn = col('.')
+  " Save last search and cursor position
+  let searchHistory = @/
+  let cursorLine = line('.')
+  let cursorColumn = col('.')
 
-    " Strip trailing whitespaces
-    %s/\s\+$//e
+  " Strip trailing whitespaces
+  %s/\s\+$//e
 
-    " Restore previous search history and cursor position
-    let @/ = searchHistory
-    call cursor(cursorLine, cursorColumn)
+  " Restore previous search history and cursor position
+  let @/ = searchHistory
+  call cursor(cursorLine, cursorColumn)
 
 endfunction
 
@@ -759,28 +759,28 @@ endfunction
 
 function! ToggleLimits()
 
-    " [51,73]
-    " - git commit message
-    " http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-    " [81]
-    " - general use
+  " [51,73]
+  " - git commit message
+  " http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+  " [81]
+  " - general use
 
-    if ( &colorcolumn == '73' )
-        set colorcolumn+=51,81
-    else
-        set colorcolumn-=51,81
-    endif
+  if ( &colorcolumn == '73' )
+    set colorcolumn+=51,81
+  else
+    set colorcolumn-=51,81
+  endif
 
 endfunction
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function! ToggleRelativeLineNumbers()
-    if ( &relativenumber == 1 )
-        set number
-    else
-        set relativenumber
-    endif
+  if ( &relativenumber == 1 )
+    set number
+  else
+    set relativenumber
+  endif
 endfunction
 
 " ----------------------------------------------------------------------
@@ -794,130 +794,130 @@ nmap <leader>v :vsp $MYVIMRC<CR>
 if has('autocmd')
   :syntax off
 
-    " Autocommand Groups
-    " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+  " Autocommand Groups
+  " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
 
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    " Automatically reload the configurations from the
-    " `~/.vimrc` and `~/.gvimrc` files whenever they are changed
+  " Automatically reload the configurations from the
+  " `~/.vimrc` and `~/.gvimrc` files whenever they are changed
 
-    augroup auto_reload_vim_configs
+  augroup auto_reload_vim_configs
 
-        autocmd!
-        autocmd BufWritePost vimrc source $MYVIMRC
+    autocmd!
+    autocmd BufWritePost vimrc source $MYVIMRC
 
-        if has('gui_running')
-            autocmd BufWritePost gvimrc source $MYGVIMRC
-        endif
+    if has('gui_running')
+      autocmd BufWritePost gvimrc source $MYGVIMRC
+    endif
 
-    augroup END
-
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-" Use relative line numbers
-" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-
-augroup relative_line_numbers
-  autocmd!
-  " Automatically switch to absolute line numbers when vim loses focus
-  autocmd FocusLost * :set number
-  " Automatically switch to relative line numbers when vim gains focus
-  autocmd FocusGained * :set relativenumber
-  " Automatically switch to absolute line numbers when vim is in insert mode
-  autocmd InsertEnter * :set number
-  " Automatically switch to relative line numbers when vim is in normal mode
-  autocmd InsertLeave * :set relativenumber
-augroup END
-
-    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  augroup END
 
 
-" Automatically strip the trailing whitespaces when files are saved
+  " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-augroup strip_trailing_whitespaces
+  " Use relative line numbers
+  " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+
+  augroup relative_line_numbers
+    autocmd!
+    " Automatically switch to absolute line numbers when vim loses focus
+    autocmd FocusLost * :set number
+    " Automatically switch to relative line numbers when vim gains focus
+    autocmd FocusGained * :set relativenumber
+    " Automatically switch to absolute line numbers when vim is in insert mode
+    autocmd InsertEnter * :set number
+    " Automatically switch to relative line numbers when vim is in normal mode
+    autocmd InsertLeave * :set relativenumber
+  augroup END
+
+  " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+  " Automatically strip the trailing whitespaces when files are saved
+
+  augroup strip_trailing_whitespaces
     " List of file types that use the trailing whitespaces:
     "
     " * Markdown
     " https://daringfireball.net/projects/markdow
 
-endif
+  endif
 
 
 
-autocmd CompleteDone * if pumvisible() == 0 | :redraw!  | endif
+  autocmd CompleteDone * if pumvisible() == 0 | :redraw!  | endif
 
- " Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+  " Use tab for trigger completion with characters ahead and navigate
+  " NOTE: There's always complete item selected by default, you may want to enable
+  " no select by `"suggest.noselect": true` in your configuration file
+  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  " other plugin before putting this into your config
+  inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " Make <CR> to accept selected completion item or notify coc.nvim to format
+  " <C-g>u breaks current undo, please make your own choice
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+  function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
 
-function! MakeNeovideTransparentAndCharm()
-  let g:neovide_transparency = 0.0
-  let g:transparency = 0.8
-  let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
-endfunction
+  function! MakeNeovideTransparentAndCharm()
+    let g:neovide_transparency = 0.0
+    let g:transparency = 0.8
+    let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+  endfunction
 
-" Use <c-space> to trigger completion
-if has('nvim')
-  :syntax on
-  let g:copilot_enabled = 1
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+  " Use <c-space> to trigger completion
+  if has('nvim')
+    :syntax on
+    let g:copilot_enabled = 1
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
 
-" exit from terminal mode
-:tnoremap <Esc> <C-\><C-n>
+  " exit from terminal mode
+  :tnoremap <Esc> <C-\><C-n>
 
-if exists("g:neovide")
-  :syntax on
+  if exists("g:neovide")
+    :syntax on
 
-  " Start NERDTree when Vim starts with a directory argument.
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-        \ execute 'cd '.argv()[0] | endif
+    " Start NERDTree when Vim starts with a directory argument.
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+          \ execute 'cd '.argv()[0] | endif
 
-  set guifont=Monaco:h20:b
+    set guifont=Monaco:h20:b
 
-  let g:neovide_transparency = 0.0
-  let g:transparency = 0.0
-  let g:neovide_background_color = '#000'
-"
-  "Remember Previous Window Size
-  let g:neovide_remember_window_size = v:true
+    let g:neovide_transparency = 0.0
+    let g:transparency = 0.0
+    let g:neovide_background_color = '#000'
+    "
+    "Remember Previous Window Size
+    let g:neovide_remember_window_size = v:true
 
-  let g:neovide_input_use_logo = v:true  " v:true on macOS
+    let g:neovide_input_use_logo = v:true  " v:true on macOS
 
-  " enable copilot
-  let g:copilot_enabled = 1
+    " enable copilot
+    let g:copilot_enabled = 1
 
-  " Allow copy paste in neovim
-  let g:neovide_input_use_logo = 1
-  map <D-v> "+p<CR>
-  map! <D-v> <C-R>+
-  tmap <D-v> <C-R>+
-  vmap <D-c> "+y<CR> 
+    " Allow copy paste in neovim
+    let g:neovide_input_use_logo = 1
 
-  nnoremap <silent> <D-Left> :tabp<CR>
-  nnoremap <silent> <D-Right> :tabn<CR>
+    map <D-v> "+p<CR>
+    map! <D-v> <C-R>+
+    tmap <D-v> <C-R>+
+    vmap <D-c> "+y<CR>
 
-  noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
+    nnoremap <silent> <D-Left> :tabp<CR>
+    nnoremap <silent> <D-Right> :tabn<CR>
 
-endif
+    noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
+  endif
