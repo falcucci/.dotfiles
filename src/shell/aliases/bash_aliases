@@ -226,6 +226,7 @@ alias italian="trans :it $1"
 alias move="genact -s 10"
 # alias nv="neovide --multigrid $1"
 alias nv=open_neovide_
+alias icat="kitty +kitten icat"
 
 
 # A bash script called up so that if I'm in /a/very/deeply/nested/path/somewhere

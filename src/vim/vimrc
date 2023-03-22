@@ -390,7 +390,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
 " avoid to save the sessions automatically bc I am using them
 " as a workapace manager
-" :let g:session_autosave = 'yes'
+let g:session_autosave = 'no'
 
 " Don't save hidden and unloaded buffers in sessions.
 " set sessionoptions-=buffers
@@ -866,6 +866,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+function! MakeNeovideTransparentAndCharm()
+  let g:neovide_transparency = 0.0
+  let g:transparency = 0.8
+  let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+endfunction
+
 " Use <c-space> to trigger completion
 if has('nvim')
   :syntax on
@@ -880,6 +886,7 @@ endif
 
 if exists("g:neovide")
   :syntax on
+
   " Start NERDTree when Vim starts with a directory argument.
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
         \ execute 'cd '.argv()[0] | endif
@@ -908,5 +915,6 @@ if exists("g:neovide")
   nnoremap <silent> <D-Left> :tabp<CR>
   nnoremap <silent> <D-Right> :tabn<CR>
 
-endif
+  noremap <F5> :call MakeNeovideTransparentAndCharm() <CR>
 
+endif
