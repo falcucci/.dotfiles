@@ -91,7 +91,6 @@ jira_pause_(){
   fi
 }
 
-
 jira_done_(){
   if [ "$1" != "" ]
   then

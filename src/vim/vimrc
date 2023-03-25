@@ -205,6 +205,7 @@ Plug 'fannheyward/coc-pyright', { 'do': 'yarn install'}
 Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
 Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install  --frozen-lockfile'}
 
 Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install'}
 Plug 'rust-lang/rust.vim'
@@ -280,7 +281,6 @@ Plug 'mbbill/undotree'
 " Plug 'psliwka/vim-smoothie'
 
 call plug#end()
-
 
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
