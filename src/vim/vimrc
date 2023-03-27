@@ -896,6 +896,7 @@ if has('autocmd')
 
     set guifont=Monaco:h20:b
 
+    hi Floaterm guibg=black
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
