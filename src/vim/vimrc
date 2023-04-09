@@ -278,6 +278,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/fzf-floaterm'
 Plug 'mbbill/undotree'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
 
 call plug#end()
