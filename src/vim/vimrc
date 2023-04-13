@@ -198,7 +198,6 @@ set autoread
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-
 " ----------------------------------------------------------------------
 " | Plugins |
 " ----------------------------------------------------------------------
@@ -924,8 +923,6 @@ if has('autocmd')
     "
     "Remember Previous Window Size
     let g:neovide_remember_window_size = v:true
-
-    let g:neovide_input_use_logo = v:true  " v:true on macOS
 
     " enable copilot
     let g:copilot_enabled = 1
