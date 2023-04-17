@@ -11,7 +11,6 @@ let $BASH_ENV = "~/.bash_aliases"
 
 set nocompatible " Don't make vim vi-compatibile
 
-
 syntax off " Enable syntax highlighting
 
 if !has('nvim')
@@ -304,9 +303,6 @@ call plug#end()
 command Float :FloatermToggle
 let g:floaterm_keymap_toggle = '<F7>'
 
-" reload vim with the latest configuration
-command Reload :source $MYVIMRC
-noremap <F5> :Reload <CR>
 
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
@@ -591,9 +587,13 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
       \ guibg=#073642
       \ ctermbg=DarkMagenta
 
-autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black 
+autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
+
 
 colorscheme dracula
+
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+set termguicolors
 
 " ----------------------------------------------------------------------
 " | Key Mappings                                                       |
@@ -892,8 +892,10 @@ if has('autocmd')
 
   function! MakeNeovideTransparentAndCharm()
     let g:neovide_transparency = 0.0
-    let g:transparency = 0.8
+    let g:transparency = 0.6
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+    hi Floaterm guibg=black
+    set winblend=40
   endfunction
 
   " Use <c-space> to trigger completion
@@ -930,13 +932,27 @@ if has('autocmd')
     " Allow copy paste in neovim
     let g:neovide_input_use_logo = 1
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    "           bindkeys fixing the paste clipboard in neovide           "
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    nmap <D-v> "+P
+    vmap <D-v> "+P
+    " cmap <D-v> <C-R>+
+    cmap <D-v> <ESC>l"+Pli
+
     map <D-v> "+p<CR>
     map! <D-v> <C-R>+
-    tmap <D-v> <C-R>+
+    " tmap <D-v> <C-R>+
     vmap <D-c> "+y<CR>
+
+    vmap <D-v> <C-R>+
 
     nnoremap <silent> <D-Left> :tabp<CR>
     nnoremap <silent> <D-Right> :tabn<CR>
 
     noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
   endif
+
+" reload vim with the latest configuration
+command Reload :source $MYVIMRC
+noremap <F5> :Reload <CR>
