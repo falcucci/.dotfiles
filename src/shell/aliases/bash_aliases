@@ -1,4 +1,4 @@
-shopt -s expand_aliases  
+shopt -s expand_aliases
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -166,7 +166,7 @@ gpt_commit_(){
 }
 
 commit_() {
-  git add -A && git commit -e -am "$(gpt_commit_ | awk '{ print tolower($0) }')"; 
+  git add -A && git commit -e -am "$(gpt_commit_ | awk '{ print tolower($0) }')";
 }
 
 auto_issue_(){
@@ -686,6 +686,3 @@ fi
 
 
 # unset OS
-
-
-

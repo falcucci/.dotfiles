@@ -301,8 +301,8 @@ call plug#end()
 "  let g:smoothie_speed_exponentiation_factor = 0.9
 
 command Float :FloatermToggle
-let g:floaterm_keymap_toggle = '<F7>'
-
+let g:floaterm_keymap_toggle = '<c-z>' 
+" let g:floaterm_keymap_toggle = '<F7>'
 
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
@@ -580,19 +580,21 @@ endif
 let g:indent_guides_auto_colors = 0
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd
-      \ guibg=#00323D
-      \ ctermbg=Magenta
+      \ guibg=NONE
+      \ ctermbg=NONE
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
-      \ guibg=#073642
-      \ ctermbg=DarkMagenta
-
-autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
+      \ guibg=NONE
+      \ ctermbg=NONE
 
 
 colorscheme dracula
 
+" make vim respect the terminal background
+autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
+
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
 set termguicolors
 
 " ----------------------------------------------------------------------
@@ -892,9 +894,11 @@ if has('autocmd')
 
   function! MakeNeovideTransparentAndCharm()
     let g:neovide_transparency = 0.0
-    let g:transparency = 0.6
+    let g:transparency = 0.7
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
-    hi Floaterm guibg=black
+
+    " autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
+    " hi Floaterm guibg=black
     set winblend=40
   endfunction
 
@@ -922,6 +926,7 @@ if has('autocmd')
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
+
     "
     "Remember Previous Window Size
     let g:neovide_remember_window_size = v:true
