@@ -301,8 +301,10 @@ call plug#end()
 "  let g:smoothie_speed_exponentiation_factor = 0.9
 
 command Float :FloatermToggle
-let g:floaterm_keymap_toggle = '<c-z>' 
-" let g:floaterm_keymap_toggle = '<F7>'
+let g:floaterm_keymap_toggle = '<F7>'
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
+let g:floaterm_position = 'center'
 
 " adding copilot keybindings to turns it on and off
 " nnoremap <silent> <leader>cc :CocCommand copilot.turnOn<CR>
@@ -916,6 +918,8 @@ if has('autocmd')
 
   if exists("g:neovide")
     :syntax on
+
+    let g:floaterm_keymap_toggle = '<c-z>' 
 
     " Start NERDTree when Vim starts with a directory argument.
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
