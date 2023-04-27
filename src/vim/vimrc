@@ -215,6 +215,7 @@ Plug 'neoclide/coc-yaml', { 'do': 'yarn install'}
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install'}
 Plug 'yaegassy/coc-nginx', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-vimlsp', {'do': 'yarn install  --frozen-lockfile'}
+Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'fannheyward/coc-rust-analyzer', {'do': 'yarn install'}
 Plug 'rust-lang/rust.vim'
@@ -287,11 +288,21 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/fzf-floaterm'
 Plug 'mbbill/undotree'
+Plug 'madox2/vim-ai'
+Plug 'dense-analysis/neural'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
-
 call plug#end()
+
+" Configure Neural like so in Vimscript
+let g:neural = {
+\   'source': {
+\       'openai': {
+\           'api_key': $OPENAI_API_KEY,
+\       },
+\   },
+\}
 
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
@@ -480,6 +491,9 @@ noremap <space> :
 
 nnoremap <F10> :tabp<CR>
 nnoremap <F12> :tabn<CR>
+
+nnoremap <silent> <d-Left> :tabp<CR>
+nnoremap <silent> <d-Right> :tabn<CR>
 
 " nnoremap <buffer> <F9> :exec '!clear;python' shellescape(@%, 1)<cr>
 
@@ -919,7 +933,7 @@ if has('autocmd')
   if exists("g:neovide")
     :syntax on
 
-    let g:floaterm_keymap_toggle = '<c-z>' 
+    let g:floaterm_keymap_toggle = '<c-z>'
 
     " Start NERDTree when Vim starts with a directory argument.
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
