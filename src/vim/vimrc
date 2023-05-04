@@ -908,6 +908,8 @@ if has('autocmd')
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
+
+  " This function sets up the Neovide editor to be transparent and charming.
   function! MakeNeovideTransparentAndCharm()
     let g:neovide_transparency = 0.0
     let g:transparency = 0.7
@@ -933,6 +935,7 @@ if has('autocmd')
   if exists("g:neovide")
     :syntax on
 
+    " Map <c-z> to toggle Floaterm window visibility.
     let g:floaterm_keymap_toggle = '<c-z>'
 
     " Start NERDTree when Vim starts with a directory argument.
@@ -941,6 +944,8 @@ if has('autocmd')
 
     set guifont=Monaco:h20:b
 
+
+    " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
@@ -958,6 +963,11 @@ if has('autocmd')
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "           bindkeys fixing the paste clipboard in neovide           "
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " This mapping allows you to paste the contents
+    " of the clipboard into the current buffer
+    " with the key combination of Ctrl+V.
+    " It also allows you to copy the current line
+    " with the key combination of Ctrl+C.
     nmap <D-v> "+P
     vmap <D-v> "+P
     " cmap <D-v> <C-R>+
@@ -972,6 +982,10 @@ if has('autocmd')
 
     nnoremap <silent> <D-Left> :tabp<CR>
     nnoremap <silent> <D-Right> :tabn<CR>
+
+    " Map <D-Down> to prev term, <D-Up> to next term.
+    let g:floaterm_keymap_prev = '<D-Down>'
+    let g:floaterm_keymap_next = '<D-Up>'
 
     noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
   endif
