@@ -1,8 +1,3 @@
-" ----------------------------------------------------------------------
-" | General Settings |
-" ----------------------------------------------------------------------
-
-
 " Pathogen exec
 " execute pathogen#infect()
 
@@ -96,7 +91,6 @@ set incsearch " Highlight search pattern as
 " it is being typed
 
 set laststatus=2 " Always show the status line
-
 
 set listchars=tab:▸\ " ┐
 set listchars+=trail:· " │ Use custom symbols to
@@ -463,8 +457,8 @@ let NERDTreeIgnore = ['\.pyc$']
 " maps Ctr+lo to toggle nerdtree in the dir of the current buffer:
 map <C-o> :NERDTreeToggle %<CR>
 
-" maps Ctrl+l to search for the current word in the current directory:
-map <C-i> :Rg<CR>
+" maps Ctrl+i to search for the current word in the current directory:
+map <C-i> :Rg <C-R><C-W>
 
 " maps Ctrl+P to toggle ZFZ:
 map <C-p> :FZF<CR>
@@ -923,6 +917,19 @@ if has('autocmd')
   " Use <c-space> to trigger completion
   if has('nvim')
     :syntax on
+
+    " Map keyboard shortcuts to quickly switch between tabs in Vim.
+    nnoremap <silent> <D-Left> :tabp<CR>
+    nnoremap <silent> <D-Right> :tabn<CR>
+
+    nnoremap <silent> <A-Left> :tabp<CR>
+    nnoremap <silent> <A-Right> :tabn<CR>
+
+    let g:floaterm_keymap_prev = '<A-Down>'
+    let g:floaterm_keymap_next = '<A-Up>'
+
+    " let g:floaterm_keymap_toggle = '<c-z>'
+
     let g:copilot_enabled = 1
     inoremap <silent><expr> <c-space> coc#refresh()
   else
@@ -974,8 +981,8 @@ if has('autocmd')
     cmap <D-v> <ESC>l"+Pli
 
     map <D-v> "+p<CR>
-    map! <D-v> <C-R>+
-    " tmap <D-v> <C-R>+
+    " map! <D-v> <C-R>+
+    tmap <D-v> <C-R>+
     vmap <D-c> "+y<CR>
 
     vmap <D-v> <C-R>+
