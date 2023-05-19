@@ -458,7 +458,8 @@ let NERDTreeIgnore = ['\.pyc$']
 map <C-o> :NERDTreeToggle %<CR>
 
 " maps Ctrl+i to search for the current word in the current directory:
-map <C-i> :Rg <C-R><C-W>
+map <C-i> :Rg <C-R><C-W><CR>
+"  :Rg <C-R><C-W><space>
 
 " maps Ctrl+P to toggle ZFZ:
 map <C-p> :FZF<CR>
@@ -604,6 +605,8 @@ colorscheme dracula
 autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
+autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=black guibg=black 
 
 set termguicolors
 
@@ -910,7 +913,7 @@ if has('autocmd')
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
 
     " autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
-    " hi Floaterm guibg=black
+    hi Floaterm guibg=black
     set winblend=40
   endfunction
 
@@ -975,17 +978,17 @@ if has('autocmd')
     " with the key combination of Ctrl+V.
     " It also allows you to copy the current line
     " with the key combination of Ctrl+C.
-    nmap <D-v> "+P
-    vmap <D-v> "+P
+    " nmap <D-v> "+P
+    " vmap <D-v> "+P
     " cmap <D-v> <C-R>+
-    cmap <D-v> <ESC>l"+Pli
+    " cmap <D-v> <ESC>l"+Pli
 
     map <D-v> "+p<CR>
-    " map! <D-v> <C-R>+
+    map! <D-v> <C-R>+
     tmap <D-v> <C-R>+
     vmap <D-c> "+y<CR>
 
-    vmap <D-v> <C-R>+
+    " vmap <D-v> <C-R>+
 
     nnoremap <silent> <D-Left> :tabp<CR>
     nnoremap <silent> <D-Right> :tabn<CR>
