@@ -908,6 +908,15 @@ if has('autocmd')
 
   " This function sets up the Neovide editor to be transparent and charming.
   function! MakeNeovideTransparentAndCharm()
+    if g:transparency == 0.7
+      let g:neovide_transparency = 0.0
+      let g:transparency = 0.0
+      let g:neovide_background_color = '#000'
+      hi Floaterm guibg=black
+      set winblend=0
+      return
+    endif
+
     let g:neovide_transparency = 0.0
     let g:transparency = 0.7
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
@@ -958,6 +967,7 @@ if has('autocmd')
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
+
     let g:neovide_background_color = '#000'
 
     "
