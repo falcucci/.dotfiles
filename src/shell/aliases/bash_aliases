@@ -278,6 +278,17 @@ codi() {
 # | Opening files with FZF|
 # ----------------------------------------------------------------------
 
+# p - preview the content of a file
+#   - use bat if available
+p() {
+  local files
+  IFS=$'\n' files=($(fzf --preview 'bat {-1} --color=always --style=header,grid "$@" || cat "$@"'))
+  [[ -n "$files" ]] && nvim "${files[@]}"
+}
+
+d() {
+  git diff $@ --name-only | fzf -m --ansi --preview "git diff $@ --color=always -- {-1}"
+}
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -577,7 +588,7 @@ fi
 
 
 alias :q='exit'
-alias e='vi'
+alias e='nvim'
 alias g='git'
 alias gd='git icdiff'
 alias ll='ls -l'
