@@ -277,7 +277,8 @@ Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
 Plug 'preservim/tagbar'
 " Plug 'chrisbra/Colorizer'
 Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
-Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+" Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+Plug 'subnut/nvim-ghost.nvim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/fzf-floaterm'
