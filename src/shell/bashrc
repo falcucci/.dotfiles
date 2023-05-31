@@ -11,7 +11,3 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.cargo/env"
 
 export PATH="$PATH:/Users/falcucci/.bin"
-
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
-export PATH="/Users/falcucci/git-fuzzy/bin:$PATH"

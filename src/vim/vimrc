@@ -1002,6 +1002,8 @@ if has('autocmd')
 
     nnoremap <silent> <D-Left> :tabp<CR>
     nnoremap <silent> <D-Right> :tabn<CR>
+    nnoremap <silent> <D-j> :tabp<CR>
+    nnoremap <silent> <D-k> :tabn<CR>
 
     " Map <D-Down> to prev term, <D-Up> to next term.
     let g:floaterm_keymap_prev = '<D-Down>'

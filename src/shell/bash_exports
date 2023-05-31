@@ -85,8 +85,5 @@ export PYTHONIOENCODING="UTF-8"
 PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export GO111MODULE=auto
-
-# add nvim binary
-PATH=$PATH:/usr/local/bin/nvim
-
+export PATH="/usr/local/bin/nvim:$PATH"
 export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
