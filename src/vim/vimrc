@@ -285,6 +285,7 @@ Plug 'voldikss/fzf-floaterm'
 Plug 'mbbill/undotree'
 Plug 'madox2/vim-ai'
 Plug 'dense-analysis/neural'
+Plug 'lifepillar/vim-gruvbox8'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -426,11 +427,6 @@ autocmd FileType javascript,css,jinja,jinja2,html,rust inoremap <silent> <Leader
 autocmd FileType javascript UltiSnipsAddFiletypes html
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
-" [,space] Auto format python pep8
-noremap <F6> :Autoformat<CR>
-let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
-let g:formatters_python = ['autopep8']
-
 " Enable/Disable the syntax
 :map <F8> :if exists("g:syntax_on") <Bar>
       \   syntax off <Bar>
@@ -535,12 +531,6 @@ nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
 nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
 " remove quotes from a word
 nnoremap wq :silent! normal mpeld bhd `ph<CR>
-
-" Now you can just press F6 any time
-" inside Vi/Vim and you'll get a timestamp
-" like 2016-01-25 Mo 12:44 inserted at the cursor.
-" nmap <F6> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-" imap <F6> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " set key to move blocks selecteds
 let g:move_key_modifier = 'C'
@@ -906,6 +896,29 @@ if has('autocmd')
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
+  function! ChangeTheme()
+    echo "Changing theme"
+    if &background != 'dark'
+      let g:neovide_background_color = '#000'
+      autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
+      autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+      autocmd vimenter,Colorscheme * hi FloatermBorder guibg=NONE guifg=white
+      autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=black guibg=black 
+      set background=dark
+      colorscheme dracula
+    else
+      let $BAT_THEME="gruvbox-light"
+      autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
+      autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+      autocmd vimenter,Colorscheme * hi FloatermBorder guibg=NONE guifg=NONE
+      autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=white guibg=white
+      let g:neovide_background_color = '#F8F5DA'
+      set background=light
+      colorscheme gruvbox8_soft
+    endif
+    return &background
+  endfunction
+
 
   " This function sets up the Neovide editor to be transparent and charming.
   function! MakeNeovideTransparentAndCharm()
@@ -918,8 +931,8 @@ if has('autocmd')
       return
     endif
 
-    let g:neovide_transparency = 0.0
     let g:transparency = 0.7
+    let g:neovide_transparency = 0.0
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
 
     " autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
@@ -949,7 +962,7 @@ if has('autocmd')
     inoremap <silent><expr> <c-@> coc#refresh()
   endif
 
-  " exit from terminal mode
+  " exit from terminal mode using ESC
   :tnoremap <Esc> <C-\><C-n>
 
   if exists("g:neovide")
@@ -964,11 +977,9 @@ if has('autocmd')
 
     set guifont=Monaco:h20:b
 
-
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
-
     let g:neovide_background_color = '#000'
 
     "
@@ -1011,6 +1022,7 @@ if has('autocmd')
     let g:floaterm_keymap_next = '<D-Up>'
 
     noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
+    noremap <F6> :call ChangeTheme() <CR>
   endif
 
 " reload vim with the latest configuration
