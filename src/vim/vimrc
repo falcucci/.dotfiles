@@ -300,6 +300,13 @@ let g:neural = {
 \   },
 \}
 
+" Multiple autocommands can be specified like so -
+augroup nvim_ghost_user_autocommands
+  au User www.reddit.com,www.stackoverflow.com setfiletype markdown
+  au User www.reddit.com,www.github.com setfiletype markdown
+  au User *github.com setfiletype markdown
+augroup END
+
 " make it interactive to turn on all my aliases
 " set shellcmdflag=-ic
 
@@ -907,7 +914,7 @@ if has('autocmd')
       set background=dark
       colorscheme dracula
     else
-      let $BAT_THEME="gruvbox-light"
+      let $BAT_THEME="gruvbox-soft"
       autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
       autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
       autocmd vimenter,Colorscheme * hi FloatermBorder guibg=NONE guifg=NONE
@@ -975,12 +982,12 @@ if has('autocmd')
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
           \ execute 'cd '.argv()[0] | endif
 
-    set guifont=Monaco:h20:b
-
+    set guifont=Monaco:h18:b
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
+    let g:neovide_hide_mouse_when_typing = v:true
 
     "
     "Remember Previous Window Size
