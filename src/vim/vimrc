@@ -910,22 +910,34 @@ if has('autocmd')
   "   Can be either 'dark' or 'light'.
   " Returns:
   function GetReverseTheme(theme)
-    return {
-        \ 'dark': { 'colorscheme': 'gruvbox8_soft', 'background': 'light', 'background_color': '#F8F5DA', 'Pmenu_b': 'NONE' } ,
-        \ 'light': { 'colorscheme': 'dracula', 'background': 'dark', 'background_color': '#000', 'Pmenu_b': 'black' } , 
-        \ }[a:theme]
+    return
+          \ {
+          \   'dark': {
+          \    'colorscheme': 'gruvbox8_soft',
+          \    'background': 'light',
+          \    'background_color': '#F8F5DA',
+          \    'Pmenu_b': 'NONE'
+          \   },
+          \   'light': {
+          \    'colorscheme': 'dracula',
+          \    'background': 'dark',
+          \    'background_color': '#000',
+          \    'Pmenu_b': 'black'
+          \   }, 
+          \ }[a:theme]
   endfunction
 
   " This function changes the theme of the current Vim session.
   function! ChangeTheme()
-    let $BAT_THEME=g:theme
     let g:theme = GetReverseTheme(&background)['colorscheme']
     let g:r_background = GetReverseTheme(&background)['background']
     let g:background_color = GetReverseTheme(&background)['background_color']
     let g:Pmenu_b = GetReverseTheme(&background)['Pmenu_b']
     let g:neovide_background_color = g:background_color
+    let $BAT_THEME=g:theme
     autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
     autocmd vimenter,Colorscheme * hi FloatermBorder guibg=NONE guifg=NONE
+    " execute() is used to execute a string as a Vim command.
     execute 'autocmd VimEnter,Colorscheme * :hi Floaterm guibg='.. g:Pmenu_b
     execute 'autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=' .. g:Pmenu_b
     execute 'autocmd VimEnter,Colorscheme * :hi Pmenu guibg=' .. g:Pmenu_b
