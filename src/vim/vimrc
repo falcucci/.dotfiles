@@ -302,9 +302,11 @@ let g:neural = {
 
 " Multiple autocommands can be specified like so -
 augroup nvim_ghost_user_autocommands
+  au User *lex.page setfiletype markdown 
   au User www.reddit.com,www.stackoverflow.com setfiletype markdown
   au User www.reddit.com,www.github.com setfiletype markdown
   au User *github.com setfiletype markdown
+  au User *glicol.org setfiletype rust
 augroup END
 
 " make it interactive to turn on all my aliases
@@ -946,6 +948,24 @@ if has('autocmd')
     return &background
   endfunction
 
+  " returns a dictionary containing the transparency,
+  " background color, and terminal color for either
+  " a dark or light color scheme, depending on the value of `color`.
+  function! GetTransparentColors(color)
+    return {
+          \ 'dark': {
+          \   'transparency': 0.7,
+          \   'background_color': '#0f1117',
+          \   'term_color': 'black'
+          \ },
+          \ 'light': {
+          \   'transparency': 0.7,
+          \   'background_color': '#F8F5DA',
+          \   'term_color': 'NONE'
+          \ },
+          \ }[a:color]
+  endfunction
+
   " This function sets up the Neovide editor to be transparent and charming.
   function! MakeNeovideTransparentAndCharm()
     if g:transparency == 0.7
@@ -957,9 +977,13 @@ if has('autocmd')
       return
     endif
 
-    let g:transparency = 0.7
+    let g:transparency_level = GetTransparentColors(&background)['transparency']
+    let g:background_color = GetTransparentColors(&background)['background_color']
+    let g:term_color = GetTransparentColors(&background)['term_color']
+
+    let g:transparency = g:transparency_level
     let g:neovide_transparency = 0.0
-    let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+    let g:neovide_background_color = g:background_color.printf('%x', float2nr(255 * g:transparency))
 
     " autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
     hi Floaterm guibg=black
