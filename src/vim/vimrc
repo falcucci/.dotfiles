@@ -459,10 +459,10 @@ autocmd VimEnter * set background=dark
 let NERDTreeIgnore = ['\.pyc$']
 
 " maps Ctr+lo to toggle nerdtree in the dir of the current buffer:
-map <C-o> :NERDTreeToggle %<CR>
+map <C-0> :NERDTreeToggle %<CR>
 
 " maps Ctrl+i to search for the current word in the current directory:
-map <C-i> :Rg <C-R><C-W><CR>
+map <CR> :Rg <C-R><C-W><CR>
 "  :Rg <C-R><C-W><space>
 
 " maps Ctrl+P to toggle ZFZ:
@@ -1030,7 +1030,6 @@ if has('autocmd')
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
-    let g:neovide_hide_mouse_when_typing = v:true
 
     "
     "Remember Previous Window Size
