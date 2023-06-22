@@ -459,7 +459,7 @@ autocmd VimEnter * set background=dark
 let NERDTreeIgnore = ['\.pyc$']
 
 " maps Ctrl+e to toggle nerdtree in the dir of the current buffer:
-nnoremap <C-e> :NERDTreeToggle %<CR>
+nnoremap <C-b> :NERDTreeToggle %<CR>
 
 " maps ENTER to search for the current word in the current directory:
 nnoremap <CR> :Rg <C-R><C-W><CR>
