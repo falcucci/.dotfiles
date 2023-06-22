@@ -458,12 +458,11 @@ autocmd VimEnter * set background=dark
 " not show .pyc files on nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 
-" maps Ctr+lo to toggle nerdtree in the dir of the current buffer:
-map <C-0> :NERDTreeToggle %<CR>
+" maps Ctrl+e to toggle nerdtree in the dir of the current buffer:
+nnoremap <C-e> :NERDTreeToggle %<CR>
 
-" maps Ctrl+i to search for the current word in the current directory:
-map <CR> :Rg <C-R><C-W><CR>
-"  :Rg <C-R><C-W><space>
+" maps ENTER to search for the current word in the current directory:
+nnoremap <CR> :Rg <C-R><C-W><CR>
 
 " maps Ctrl+P to toggle ZFZ:
 map <C-p> :FZF<CR>
@@ -545,10 +544,6 @@ let g:move_key_modifier = 'C'
 " ----------------------------------------------------------------------
 " | Plugins - Emmet |
 " ----------------------------------------------------------------------
-
-" Redefine trigger key for Emmet
-" http://docs.emmet.io/cheat-sheet/
-let g:user_emmet_leader_key='<C-E>'
 
 " Load custom Emmet snippetsv
 " http://docs.emmet.io/customization/snippets/
@@ -681,7 +676,7 @@ nmap <leader>ss :call StripTrailingWhitespaces()<CR>
 " [,t ] Toggle NERDTree.
 
 " map <leader>t :NERDTreeToggle<CR>
-map <leader>t :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle %<CR>
 
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1030,6 +1025,7 @@ if has('autocmd')
     let g:neovide_transparency = 0.0
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
+    let g:neovide_hide_mouse_when_typing = v:false
 
     "
     "Remember Previous Window Size
