@@ -284,6 +284,7 @@ Plug 'mbbill/undotree'
 Plug 'madox2/vim-ai'
 Plug 'dense-analysis/neural'
 Plug 'lifepillar/vim-gruvbox8'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -908,9 +909,9 @@ if has('autocmd')
     return
           \ {
           \   'dark': {
-          \    'colorscheme': 'gruvbox8_soft',
+          \    'colorscheme': 'onehalflight',
           \    'background': 'light',
-          \    'background_color': '#F8F5DA',
+          \    'background_color': '#FFFFFF',
           \    'Pmenu_b': 'NONE'
           \   },
           \   'light': {
@@ -953,7 +954,7 @@ if has('autocmd')
           \ },
           \ 'light': {
           \   'transparency': 0.7,
-          \   'background_color': '#F8F5DA',
+          \   'background_color': '#FFFFFF',
           \   'term_color': 'NONE'
           \ },
           \ }[a:color]
