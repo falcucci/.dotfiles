@@ -53,13 +53,10 @@ if has('unnamedplus') " │ as the default register
   set clipboard+=unnamedplus " │
 endif " ┘
 
-
-
 set cpoptions+=$ " When making a change, don't
 " redisplay the line, and instead,
 " put a `$` sign at the end of
 " the changed text
-
 
 set colorcolumn=73 " Highlight certain column(s)
 set cursorline " Highlight the current line
@@ -679,7 +676,6 @@ nmap <leader>ss :call StripTrailingWhitespaces()<CR>
 " map <leader>t :NERDTreeToggle<CR>
 map <leader>t :NERDTreeToggle %<CR>
 
-
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " [,ti] Toggle indent.
@@ -843,7 +839,6 @@ if has('autocmd')
 
   augroup END
 
-
   " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   " Use relative line numbers
@@ -861,9 +856,6 @@ if has('autocmd')
     autocmd InsertLeave * :set relativenumber
   augroup END
 
-  " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
   " Automatically strip the trailing whitespaces when files are saved
 
   augroup strip_trailing_whitespaces
@@ -873,8 +865,6 @@ if has('autocmd')
     " https://daringfireball.net/projects/markdow
 
   endif
-
-
 
   autocmd CompleteDone * if pumvisible() == 0 | :redraw!  | endif
 
@@ -945,15 +935,15 @@ if has('autocmd')
   " returns a dictionary containing the transparency,
   " background color, and terminal color for either
   " a dark or light color scheme, depending on the value of `color`.
-  function! GetTransparentColors(color)
+  function! GetTransparentColors(color, level)
     return {
           \ 'dark': {
-          \   'transparency': 0.7,
+          \   'transparency': a:level,
           \   'background_color': '#0f1117',
           \   'term_color': 'black'
           \ },
           \ 'light': {
-          \   'transparency': 0.7,
+          \   'transparency': a:level,
           \   'background_color': '#FFFFFF',
           \   'term_color': 'NONE'
           \ },
@@ -961,8 +951,8 @@ if has('autocmd')
   endfunction
 
   " This function sets up the Neovide editor to be transparent and charming.
-  function! MakeNeovideTransparentAndCharm()
-    if g:transparency == 0.7
+  function! MakeItTransparent(level)
+    if g:transparency == a:level
       let g:neovide_transparency = 0.0
       let g:transparency = 0.0
       let g:neovide_background_color = '#000'
@@ -971,9 +961,9 @@ if has('autocmd')
       return
     endif
 
-    let g:transparency_level = GetTransparentColors(&background)['transparency']
-    let g:background_color = GetTransparentColors(&background)['background_color']
-    let g:term_color = GetTransparentColors(&background)['term_color']
+    let g:transparency_level = GetTransparentColors(&background, a:level)['transparency']
+    let g:background_color = GetTransparentColors(&background, a:level)['background_color']
+    let g:term_color = GetTransparentColors(&background, a:level)['term_color']
 
     let g:transparency = g:transparency_level
     let g:neovide_transparency = 0.0
@@ -1021,6 +1011,7 @@ if has('autocmd')
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
           \ execute 'cd '.argv()[0] | endif
 
+    " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h18
     set guifont=Monaco:h18:b
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
@@ -1067,7 +1058,7 @@ if has('autocmd')
     let g:floaterm_keymap_prev = '<D-Down>'
     let g:floaterm_keymap_next = '<D-Up>'
 
-    noremap <F4> :call MakeNeovideTransparentAndCharm() <CR>
+    noremap <F4> :call MakeItTransparent(0.7) <CR>
     noremap <F6> :call ChangeTheme() <CR>
   endif
 
