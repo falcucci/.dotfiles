@@ -1019,6 +1019,12 @@ if has('autocmd')
     let g:neovide_background_color = '#000'
     let g:neovide_hide_mouse_when_typing = v:false
 
+    " sets the padding for the neovide plugin.
+    let g:neovide_padding_top = 0
+    let g:neovide_padding_bottom = 0
+    let g:neovide_padding_right = 40
+    let g:neovide_padding_left = 40
+
     "
     "Remember Previous Window Size
     let g:neovide_remember_window_size = v:true
