@@ -1,0 +1,37 @@
+{
+    "languageserver": {
+        "ruff-lsp": {
+            "command": "ruff-lsp",
+            "filetypes": ["python"]
+        },
+        "ccls": {
+          "command": "ccls",
+          "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+          "rootPatterns": [".ccls-root", "compile_commands.json"],
+          "initializationOptions": {
+            "cache": {
+              "directory": ".ccls-cache"
+            },
+            "client": {
+              "snippetSupport": true
+            }
+          }
+        },
+        "bash": {
+          "command": "bash-language-server",
+          "args": ["start"],
+          "filetypes": ["sh"],
+          "ignoredRootPaths": ["~"]
+        }
+    },
+    //"suggest.autoTrigger": "always", // "trigger"
+    "coc.preferences.jumpCommand": "tab drop",
+    "tsserver.reportStyleChecksAsWarnings": false,
+    "javascript.suggestionActions.enabled": false,
+    "typescript.suggestionActions.enabled": false,
+    "tsserver.disableAutomaticTypeAcquisition": false,
+    "rust-analyzer.completion.autoimport.enable": true,
+    "rust-analyzer.imports.granularity.group": "crate",
+    "rust-analyzer.server.path": "/usr/local/bin/rust-analyzer",
+    "snippets.ultisnips.pythonPrompt": false
+}
