@@ -46,7 +46,7 @@ Output for `git status`:
     <tbody>
         <tr>
             <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/10561038/f9f11a28-7525-11e5-8e1d-a304ad3557f9.png" alt="Output for Git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.50.23%402x.png" alt="Output for Git status on macOS" width="100%">
             </td>
         </tr>
         <tr align="center">
