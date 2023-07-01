@@ -84,7 +84,7 @@ Output for `git log`:
     <tbody>
         <tr>
             <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/10560966/e4ec08a6-7523-11e5-8941-4e12f6550a63.png" alt="Output for Git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.41.24%402x.png" alt="Output for Git status on macOS" width="100%">
             </td>
             <td>
                 <img src="https://cloud.githubusercontent.com/assets/1223565/10560955/4b5e1300-7523-11e5-9e96-95ea67de9474.png" alt="Output for Git log on Ubuntu" width="100%">
