@@ -82,13 +82,9 @@ Output for `git log`:
             <td>
                 <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.41.24%402x.png" alt="Output for Git status on macOS" width="100%">
             </td>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/10560955/4b5e1300-7523-11e5-9e96-95ea67de9474.png" alt="Output for Git log on Ubuntu" width="100%">
-            </td>
         </tr>
         <tr align="center">
             <td>macOS</td>
-            <td>Ubuntu</td>
         </td>
     </tbody>
 </table>
