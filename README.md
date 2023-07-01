@@ -89,25 +89,6 @@ Output for `git log`:
     </tbody>
 </table>
 
-### tmux & vim
-
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/10561007/498e1212-7525-11e5-8252-81503b3d6184.png" alt="tmux and vim on macOS" width="100%">
-            </td>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/10560956/557ca2de-7523-11e5-9000-fc1e189a95f5.png" alt="tmux and vim on Ubuntu" width="100%">
-            </td>
-        </tr>
-        <tr align="center">
-            <td>macOS</td>
-            <td>Ubuntu</td>
-        </td>
-    </tbody>
-</table>
-
 ## Customize
 
 ### Local Settings
