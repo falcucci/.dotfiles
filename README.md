@@ -40,21 +40,6 @@ The setup process will:
 
 ### Git
 
-Output for `git status`:
-
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.50.23%402x.png" alt="Output for Git status on macOS" width="100%">
-            </td>
-        </tr>
-        <tr align="center">
-            <td>macOS</td>
-        </td>
-    </tbody>
-</table>
-
 Output for `git log`:
 
 <table>
@@ -69,6 +54,22 @@ Output for `git log`:
         </td>
     </tbody>
 </table>
+
+Output for `git status`:
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.50.23%402x.png" alt="Output for Git status on macOS" width="100%">
+            </td>
+        </tr>
+        <tr align="center">
+            <td>macOS</td>
+        </td>
+    </tbody>r
+</table>
+
 
 ## Customize
 
