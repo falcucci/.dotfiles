@@ -36,25 +36,6 @@ The setup process will:
   [`Ubuntu`](src/os/preferences/ubuntu) preferences
 * Install [`vim` plugins](src/vim/vim/plugins)
 
-Setup process in action:
-
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/19314446/cd89a592-90a2-11e6-948d-9d75247088ba.gif" alt="Setup process on Ubuntu" width="100%">
-            </td>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/19048636/e23e347a-89af-11e6-853c-98616b75b6ae.gif" alt="Setup process on Ubuntu" width="100%">
-            </td>
-        </tr>
-        <tr align="center">
-            <td>macOS</td>
-            <td>Ubuntu</td>
-        </td>
-    </tbody>
-</table>
-
 ## Screenshots
 
 ### Git
