@@ -61,7 +61,7 @@ Output for `git status`:
     <tbody>
         <tr>
             <td>
-                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2012.50.23%402x.png" alt="Output for Git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-01%20at%2015.13.25%402x.png" alt="Output for Git status on macOS" width="100%">
             </td>
         </tr>
         <tr align="center">
