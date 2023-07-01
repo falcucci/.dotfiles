@@ -67,13 +67,9 @@ Output for `git status`:
             <td>
                 <img src="https://cloud.githubusercontent.com/assets/1223565/10561038/f9f11a28-7525-11e5-8e1d-a304ad3557f9.png" alt="Output for Git status on macOS" width="100%">
             </td>
-            <td>
-                <img src="https://cloud.githubusercontent.com/assets/1223565/8397636/3708d218-1ddb-11e5-9d40-21c6871271b9.png" alt="Output for Git status on Ubuntu" width="100%">
-            </td>
         </tr>
         <tr align="center">
             <td>macOS</td>
-            <td>Ubuntu</td>
         </td>
     </tbody>
 </table>
