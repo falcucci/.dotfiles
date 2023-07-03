@@ -273,6 +273,7 @@ Plug 'madox2/vim-ai'
 Plug 'dense-analysis/neural'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'ikey4u/nvim-previewer', { 'do': 'cargo build --release' }
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -890,12 +891,14 @@ if has('autocmd')
     return
           \ {
           \   'dark': {
+          \    'font': 'Monaco:h18:b',
           \    'colorscheme': 'onehalflight',
           \    'background': 'light',
           \    'background_color': '#FFFFFF',
           \    'Pmenu_b': 'NONE'
           \   },
           \   'light': {
+          \    'font': 'Monaco:h18:b',
           \    'colorscheme': 'dracula',
           \    'background': 'dark',
           \    'background_color': '#000',
@@ -906,6 +909,7 @@ if has('autocmd')
 
   " This function changes the theme of the current Vim session.
   function! ChangeTheme(theme='dark')
+    let g:font = GetReverseTheme(g:lbackground)['font'] 
     let g:lbackground = a:theme == 'dark' ? &background : a:theme 
     let g:theme = GetReverseTheme(g:lbackground)['colorscheme']
     let g:r_background = GetReverseTheme(g:lbackground)['background']
@@ -920,6 +924,7 @@ if has('autocmd')
     execute 'autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=' .. g:Pmenu_b
     execute 'autocmd VimEnter,Colorscheme * :hi Pmenu guibg=' .. g:Pmenu_b
     execute 'set background=' .. g:r_background
+    execute 'set guifont=' .. g:font
     execute 'colorscheme ' .. g:theme
     return &background
   endfunction
@@ -1003,7 +1008,7 @@ if has('autocmd')
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
           \ execute 'cd '.argv()[0] | endif
 
-    " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h18
+    " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h17:i
     set guifont=Monaco:h18:b
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
