@@ -905,11 +905,12 @@ if has('autocmd')
   endfunction
 
   " This function changes the theme of the current Vim session.
-  function! ChangeTheme()
-    let g:theme = GetReverseTheme(&background)['colorscheme']
-    let g:r_background = GetReverseTheme(&background)['background']
-    let g:background_color = GetReverseTheme(&background)['background_color']
-    let g:Pmenu_b = GetReverseTheme(&background)['Pmenu_b']
+  function! ChangeTheme(theme='dark')
+    let g:lbackground = a:theme == 'dark' ? &background : a:theme 
+    let g:theme = GetReverseTheme(g:lbackground)['colorscheme']
+    let g:r_background = GetReverseTheme(g:lbackground)['background']
+    let g:background_color = GetReverseTheme(g:lbackground)['background_color']
+    let g:Pmenu_b = GetReverseTheme(g:lbackground)['Pmenu_b']
     let g:neovide_background_color = g:background_color
     let $BAT_THEME=g:theme
     autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE

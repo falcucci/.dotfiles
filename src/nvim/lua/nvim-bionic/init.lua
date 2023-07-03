@@ -70,7 +70,6 @@ end
 
 
 function M.on()
-  print('hey')
   local bufnr = api.nvim_get_current_buf()
   if not buffers[bufnr] then
     add_buff_and_start(bufnr)
