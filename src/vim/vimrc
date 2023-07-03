@@ -274,6 +274,7 @@ Plug 'dense-analysis/neural'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'ikey4u/nvim-previewer', { 'do': 'cargo build --release' }
+Plug 'nyoom-engineering/oxocarbon.nvim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -892,7 +893,7 @@ if has('autocmd')
           \ {
           \   'dark': {
           \    'font': 'Monaco:h18:b',
-          \    'colorscheme': 'onehalflight',
+          \    'colorscheme': 'oxocarbon',
           \    'background': 'light',
           \    'background_color': '#FFFFFF',
           \    'Pmenu_b': 'NONE'
@@ -909,8 +910,8 @@ if has('autocmd')
 
   " This function changes the theme of the current Vim session.
   function! ChangeTheme(theme='dark')
-    let g:font = GetReverseTheme(g:lbackground)['font'] 
     let g:lbackground = a:theme == 'dark' ? &background : a:theme 
+    let g:font = GetReverseTheme(g:lbackground)['font'] 
     let g:theme = GetReverseTheme(g:lbackground)['colorscheme']
     let g:r_background = GetReverseTheme(g:lbackground)['background']
     let g:background_color = GetReverseTheme(g:lbackground)['background_color']
