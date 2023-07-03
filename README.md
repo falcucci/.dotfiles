@@ -70,6 +70,22 @@ Output for `git status`:
     </tbody>r
 </table>
 
+### Neovim
+
+Dark mode:
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-03%20at%2021.43.02%402x.png" alt="Output for Git status on macOS" width="100%">
+            </td>
+        </tr>
+        <tr align="center">
+            <td>macOS</td>
+        </td>
+    </tbody>r
+</table>
 
 ## Customize
 

@@ -30,15 +30,12 @@ if has('autocmd')
   " └─────────────── Enable loading of plugin files
 endif
 
-
 set autoindent " Copy indent to the new line
-
 
 set backspace=indent " ┐
 set backspace+=eol " │ Allow `backspace`
 set backspace+=start " ┘ in insert mode
 nnoremap <BS> X
-
 
 set backupdir=~/.vim/backups " Set directory for backup files
 
