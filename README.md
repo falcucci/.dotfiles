@@ -78,7 +78,7 @@ Dark mode:
     <tbody>
         <tr>
             <td>
-                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-03%20at%2021.43.02%402x.png" alt="Output for Git status on macOS" width="100%">
+                <img src="https://raw.githubusercontent.com/falcucci/clipboard-images/main/images/CleanShot%202023-07-03%20at%2021.51.51%402x.png" alt="Output for Git status on macOS" width="100%">
             </td>
         </tr>
         <tr align="center">
