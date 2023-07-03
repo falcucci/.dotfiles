@@ -270,7 +270,7 @@ Plug 'madox2/vim-ai'
 Plug 'dense-analysis/neural'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'ikey4u/nvim-previewer', { 'do': 'cargo build --release' }
+Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release' }
 Plug 'nyoom-engineering/oxocarbon.nvim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
