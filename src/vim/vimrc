@@ -1010,7 +1010,7 @@ if has('autocmd')
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
           \ execute 'cd '.argv()[0] | endif
 
-    " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h17:i
+    " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h17
     set guifont=Monaco:h18:b
     " Set neovide transparency and background color to 0.0 and #000 respectively.
     let g:neovide_transparency = 0.0
