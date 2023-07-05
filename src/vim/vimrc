@@ -583,12 +583,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
 
 colorscheme dracula
 
-" make vim respect the terminal background
-autocmd VimEnter,Colorscheme * :hi Floaterm guibg=black
+" makes vim respect the terminal background
+autocmd VimEnter,Colorscheme * :hi Floaterm guibg=NONE
 
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
 
-autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=black guibg=black
+autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=NONE guibg=NONE
 
 set termguicolors
 
@@ -809,7 +809,8 @@ endfunction
 nmap <leader>v :vsp $MYVIMRC<CR>
 
 if has('autocmd')
-  :syntax off
+  :syntax on
+  :hi Normal guibg=NONE ctermbg=NONE
 
   " Autocommand Groups
   " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
@@ -908,16 +909,16 @@ if has('autocmd')
 
   " This function changes the theme of the current Vim session.
   function! ChangeTheme(theme='dark')
-    let g:lbackground = a:theme == 'dark' ? &background : a:theme 
-    let g:font = GetReverseTheme(g:lbackground)['font'] 
+    let g:lbackground = a:theme == 'dark' ? &background : a:theme
+    let g:font = GetReverseTheme(g:lbackground)['font']
     let g:theme = GetReverseTheme(g:lbackground)['colorscheme']
     let g:r_background = GetReverseTheme(g:lbackground)['background']
     let g:background_color = GetReverseTheme(g:lbackground)['background_color']
     let g:Pmenu_b = GetReverseTheme(g:lbackground)['Pmenu_b']
     let g:neovide_background_color = g:background_color
     let $BAT_THEME=g:theme
-    autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-    autocmd vimenter,Colorscheme * hi FloatermBorder guibg=NONE guifg=NONE
+    autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
+    autocmd VimEnter,Colorscheme * hi FloatermBorder guibg=NONE guifg=NONE
     " execute() is used to execute a string as a Vim command.
     execute 'autocmd VimEnter,Colorscheme * :hi Floaterm guibg='.. g:Pmenu_b
     execute 'autocmd VimEnter,Colorscheme * :hi Pmenu ctermbg=' .. g:Pmenu_b
@@ -925,6 +926,7 @@ if has('autocmd')
     execute 'set background=' .. g:r_background
     execute 'set guifont=' .. g:font
     execute 'colorscheme ' .. g:theme
+    :hi Normal guibg=NONE ctermbg=NONE 
     return &background
   endfunction
 
@@ -1015,7 +1017,7 @@ if has('autocmd')
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
     let g:neovide_hide_mouse_when_typing = v:false
-    
+
     " sets the padding for the neovide plugin.
     let g:neovide_padding_top = 0
     let g:neovide_padding_bottom = 0
