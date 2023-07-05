@@ -38,7 +38,6 @@ lua << EOF
   end, {})
 
   vim.g.loaded_colorizer = true
-
 EOF
 endfunction
 call LoadPlugins()
