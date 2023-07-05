@@ -272,6 +272,7 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release' }
 Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'simnalamburt/vim-mundo'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -971,6 +972,7 @@ if has('autocmd')
 
   " Use <c-space> to trigger completion
   if has('nvim')
+    set undodir=~/.vim/undo
     :syntax on
 
     " Map keyboard shortcuts to quickly switch between tabs in Vim.
@@ -1013,7 +1015,7 @@ if has('autocmd')
     let g:transparency = 0.0
     let g:neovide_background_color = '#000'
     let g:neovide_hide_mouse_when_typing = v:false
-
+    
     " sets the padding for the neovide plugin.
     let g:neovide_padding_top = 0
     let g:neovide_padding_bottom = 0
