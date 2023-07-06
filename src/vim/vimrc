@@ -218,7 +218,6 @@ Plug 'xolox/vim-session'
 " use the command cgn to replace instead
 " https://vimtricks.com/p/vim-find-next/
 "
-Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/vim-cursorword'
 Plug 'fisadev/vim-isort'
 Plug 'Valloric/MatchTagAlways'
@@ -273,6 +272,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release' }
 Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'simnalamburt/vim-mundo'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
