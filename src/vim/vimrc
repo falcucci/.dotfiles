@@ -206,7 +206,7 @@ Plug 'epilande/vim-es2015-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tomtom/tcomment_vim'
-Plug 'hynek/vim-python-pep8-indent'
+" Plug 'hynek/vim-python-pep8-indent'
 Plug 'falcucci/vim-colorschemes'
 Plug 'ewilazarus/preto'
 Plug 'morhetz/gruvbox'
@@ -218,8 +218,7 @@ Plug 'xolox/vim-session'
 " https://vimtricks.com/p/vim-find-next/
 "
 Plug 'itchyny/vim-cursorword'
-Plug 'fisadev/vim-isort'
-Plug 'Valloric/MatchTagAlways'
+" Plug 'Valloric/MatchTagAlways'
 Plug 'bogado/file-line'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-abolish'
@@ -251,7 +250,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'huyvohcmc/atlas.vim'
 " Plug 'chamindra/marvim'
 Plug 'github/copilot.vim'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
 " Tagbar will generate tags in memory, allowing you to navitage to
 " structs, functions, etc. In the current file
@@ -272,6 +270,7 @@ Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release' }
 Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'dstein64/vim-startuptime'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/limelight.vim'
 " Plug 'psliwka/vim-smoothie'
@@ -403,6 +402,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 
 " avoid to save the sessions automatically bc I am using them
 " as a workapace manager
+let session_autoload = 'no'
 let g:session_autosave = 'no'
 let g:session_autosave_to = 'no'
 
@@ -440,14 +440,15 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 autocmd StdinReadPre * let s:std_in=1
 if !exists("g:neovide")
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute 'cd $PWD' | endif
 endif
 autocmd VimEnter * set background=dark
+
 " not show .pyc files on nerdtree
 let NERDTreeIgnore = ['\.pyc$']
 
 " maps Ctrl+e to toggle nerdtree in the dir of the current buffer:
-nnoremap <C-b> :NERDTreeToggle %<CR>
+nnoremap <C-b> :NERDTreeToggle <CR>
 
 " maps ENTER to search for the current word in the current directory:
 nnoremap <CR> :Rg <C-R><C-W><CR>
@@ -925,7 +926,7 @@ if has('autocmd')
     execute 'set background=' .. g:r_background
     execute 'set guifont=' .. g:font
     execute 'colorscheme ' .. g:theme
-    :hi Normal guibg=NONE ctermbg=NONE 
+    :hi Normal guibg=NONE ctermbg=NONE
     return &background
   endfunction
 
@@ -1010,7 +1011,7 @@ if has('autocmd')
 
     " Start NERDTree when Vim starts with a directory argument.
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-          \ execute 'cd '.argv()[0] | endif
+          \ execute 'cd '.argv()[0] | else | execute 'cd ~' | endif
 
     " set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h17
     set guifont=Monaco:h18:b
