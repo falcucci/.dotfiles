@@ -211,7 +211,7 @@ Plug 'falcucci/vim-colorschemes'
 Plug 'ewilazarus/preto'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-session'
 " use the command cgn to replace instead
@@ -243,7 +243,7 @@ Plug 'godlygeek/tabular'
 Plug 'othree/html5.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'raimondi/delimitmate'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTree', 'NERDTreeToggle'] }
 Plug 'rking/ag.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'junegunn/vim-easy-align'
@@ -256,17 +256,15 @@ Plug 'falcucci/dracula-vim', { 'as': 'dracula' }
 Plug 'preservim/tagbar'
 " Plug 'chrisbra/Colorizer'
 Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
-" Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'subnut/nvim-ghost.nvim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'voldikss/fzf-floaterm'
 Plug 'mbbill/undotree'
-Plug 'madox2/vim-ai'
+Plug 'madox2/vim-ai', { 'on' : ['AI', 'AI!'] }
 Plug 'dense-analysis/neural'
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release' }
+Plug 'falcucci/nvim-previewer', { 'do': 'cargo build --release', 'on': 'Preview' }
 Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -364,7 +362,6 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 if executable('ag')
   let $FZF_DEFAULT_COMMAND='ag --ignore=*.pyc -g ""'
 endif
-
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
