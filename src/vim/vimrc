@@ -269,10 +269,63 @@ Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'dstein64/vim-startuptime'
-" Plug 'junegunn/goyo.vim'
-" Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " Plug 'psliwka/vim-smoothie'
 call plug#end()
+
+""""""""""""""""""""""""""""
+"  goyo/limelight configs  "
+""""""""""""""""""""""""""""
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+let g:limelight_default_coefficient = 0.7
+
+command Focus :Limelight!!
+
+
+"""""""""""""""""""""""""""""""
+"  Bookmarks setup using FZF  "
+"""""""""""""""""""""""""""""""
+let g:projects = [
+      \ "~/personal/defence-labs.fm",
+      \ "~/.config/",
+      \ "~/.hammerspoon/",
+      \ "~/personal/admin/",
+      \ "~/personal/bd-api-gateway/",
+      \ "~/personal/BDLibrerie/",
+      \ "~/personal/defence-extension-helper/",
+      \ "~/personal/defencer-graphql-engine/",
+      \ "~/projects/dotfiles/",
+      \ "~/events/",
+      \ "~/personal/extractor/",
+      \ "~/",
+      \ "~/personal/falcucci.eu/",
+      \ "~/go/",
+      \ "~/luizalabs/",
+      \ "~/luizalabs/mobile-vendas-api/",
+      \ "~/neovide/",
+      \ "~/personal/notes/",
+      \ "~/personal/",
+      \ "~/projects/dotfiles/src/vim/vim/plugged/",
+      \ "~/rust/practing-rust/",
+      \ "~/personal/raycast/",
+      \ "~/personal/request-manager-app/",
+      \ "~/vercel/",
+      \ "~/projects/dotfiles/src/vim/vim/plugged/vim-colorschemes/",
+      \]
+
+command! -nargs=1 -complete=dir Nc 
+    \ if isdirectory(<q-args>) |
+    \ tabnew | execute 'NERDTree '.<q-args> |
+    \ endif
+
+let g:NERDTreeChDirMode = 1
+
+" create the bookmark command and map it to <S-B>
+command! Bookmarks call fzf#run(fzf#wrap({'source': g:projects, 'sink': 'Nc'}))
+
+nnoremap <S-B> :Bookmarks<CR>
 
 " Configure Neural like so in Vimscript
 let g:neural = {
